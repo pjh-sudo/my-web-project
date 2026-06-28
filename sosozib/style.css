@@ -430,58 +430,70 @@ header nav ul li a:hover {
     opacity: 1; /* 글자가 선명하게 보입니다 */
 }
 
-/* --- 디데이 계산기 전용 디자인 --- */
-.dday-setup {
+/* --- 디데이 계산기 UI 디자인 --- */
+.tool-container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.input-group {
     display: flex;
-    flex-direction: column; /* 요소를 위아래 세로로 배치합니다 */
+    flex-direction: column;
     gap: 15px;
     margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
 }
 
-.dday-setup input {
-    padding: 15px;
-    border: 1px solid var(--border-color);
+.input-group input[type="text"], 
+.input-group input[type="date"] {
+    padding: 12px;
+    border: 1px solid #ddd;
     border-radius: 10px;
-    font-size: 16px;
-    outline: none;
-    font-family: inherit;
 }
 
-.dday-setup button {
-    padding: 16px;
-    background-color: var(--point-color);
-    color: var(--white);
-    border: none;
-    border-radius: 10px;
-    font-size: 18px;
-    font-weight: bold;
+/* 기념일 모드 체크박스 배치 */
+.input-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
     cursor: pointer;
-    transition: background-color 0.2s;
 }
 
-.dday-setup button:hover {
-    background-color: #1a2538;
+/* 디데이 리스트 카드 스타일 */
+.dday-list { 
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.dday-result-box {
-    background-color: var(--bg-color);
-    padding: 40px 20px;
-    border-radius: 15px;
-    margin-top: 20px;
+.dday-item { 
+    background: #f8f9fa; 
+    padding: 20px; 
+    border-radius: 15px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    transition: transform 0.2s;
 }
 
-.dday-result-box h3 {
-    color: var(--text-sub);
-    font-size: 18px;
-    margin-bottom: 10px;
-    font-weight: normal;
+.dday-item:hover { transform: translateY(-2px); }
+
+.dday-item strong {
+    font-size: 1.1em;
+    color: var(--point-color);
 }
 
-.dday-result-box .dday-number {
-    font-size: 48px;
-    font-weight: 900;
-    color: #ff6b6b; /* 눈에 띄는 코랄 레드 색상 */
-    letter-spacing: 2px;
+.dday-item button {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 /* =========================================
@@ -560,6 +572,13 @@ header nav ul li a:hover {
         top: 50%;
         left: 20px;
         transform: translateY(-50%); /* 정확히 세로 기준 가운데에 오도록 마법 부리기 */
+    }
+    .color-picker {
+        bottom: auto; 
+        top: auto; 
+        left: auto; 
+        right: 20px; /* 오른쪽 끝으로 보냅니다 */
+        transform: translateY(-50%); 
     }
 
     /* --- QR 생성기 다운로드 버튼 디자인 --- */
@@ -736,3 +755,67 @@ input[type="range"] {
     cursor: pointer;
     accent-color: var(--point-color);
 }
+
+/* --- 컬러 팔레트 컨트롤 패널 & 색상 선택기 디자인 --- */
+.palette-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.palette-controls button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    transition: 0.2s;
+}
+
+.palette-controls .generate-btn { background-color: #2b3a55; }
+.palette-controls .toggle-btn { background-color: #f39c12; }
+.palette-controls .copy-all-btn { background-color: #27ae60; }
+
+.palette-controls button:hover { opacity: 0.8; }
+
+/* 사용자가 직접 색상을 고르는 동그란 선택기 */
+/* 수정된 .color-picker 디자인 */
+.color-picker {
+    position: absolute;
+    bottom: 30px;
+    left: aoto; /* 🚀 추가: 가로 기준 가운데로 */
+    transform: translateX(-50%); /* 🚀 추가: 정확한 가운데 정렬 */
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    background: none;
+}
+
+/* 크롬, 사파리 등 브라우저 기본 색상 선택기 디자인 덮어쓰기 */
+.color-picker::-webkit-color-swatch-wrapper { padding: 0; }
+.color-picker::-webkit-color-swatch { 
+    border: 3px solid rgba(255,255,255,0.5); 
+    border-radius: 50%; 
+}
+
+/* 모바일에서는 버튼들을 세로로 정렬 */
+@media (max-width: 480px) {
+    .palette-controls { flex-direction: column; }
+    
+}
+
+.dday-list { margin-top: 20px; }
+.dday-item { 
+    background: var(--bg-color); 
+    padding: 15px; 
+    margin-bottom: 10px; 
+    border-radius: 10px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+.anniversary-box { font-size: 0.9em; color: var(--text-sub); margin-top: 10px; }

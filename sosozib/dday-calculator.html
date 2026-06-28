@@ -18,26 +18,31 @@
     </header>
 
     <section class="tool-detail-section">
-        <div class="tool-container" style="max-width: 500px;">
-            <h2>디데이 계산기 📅</h2>
-            <p>중요한 날짜를 입력하면 남은 날(또는 지난 날)을 알려드려요.</p>
-            
-            <div class="dday-setup">
-                <input type="text" id="dday-title" placeholder="무슨 날인가요? (예: 내 생일, 수능)">
-                <input type="date" id="dday-date">
-                <button onclick="calculateDday()">계산하기</button>
-            </div>
+        <div class="tool-container" style="max-width: 600px;">
+    <h2>디데이 계산기 📅</h2>
+    
+    <div class="input-group">
+        <input type="text" id="dday-title" placeholder="디데이 제목 (예: 수능, 월급날)">
+        <input type="date" id="dday-date">
+        <label><input type="checkbox" id="anniversary-mode"> 기념일 모드 (+1일)</label>
+        <button onclick="saveDday()">저장하기 💾</button>
+    </div>
 
-            <div class="dday-result-box">
-                <h3 id="result-title">목표일까지</h3>
-                <div class="dday-number" id="result-number">D - ?</div>
-            </div>
-        </div>
+    <div id="dday-list" class="dday-list"></div>
+</div>
     </section>
     
     <section class="seo-text-section">
         <article class="seo-article">
-            </article>
+            <h3>디데이 계산기 100% 활용 가이드</h3>
+            <p>수능, 자격증 시험부터 연인과의 기념일, 월급날까지! 중요한 날짜를 잊지 않도록 소소집의 디데이 계산기로 간편하게 관리해 보세요.</p>
+            
+            <h4>1. 기념일 모드와 자동 계산</h4>
+            <p>시험일처럼 '당일이 D-Day(0일)'인 경우와 기념일처럼 '당일이 1일'인 경우를 선택하여 정확하게 계산할 수 있습니다. 저장 기능을 통해 여러 개의 디데이를 리스트로 한눈에 확인하세요.</p>
+            
+            <h4>2. 나만의 디데이 리스트 관리</h4>
+            <p>저장된 디데이는 브라우저를 껐다 켜도 안전하게 유지됩니다. 중요한 일정을 등록하고 오늘로부터 며칠이 남았는지 실시간으로 확인하며 소중한 시간을 알차게 계획해 보세요!</p>
+        </article>
     </section>
 
     <footer>
