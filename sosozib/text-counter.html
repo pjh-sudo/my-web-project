@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글자 수 세기 - 소소집</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo" style="text-decoration: none;">SOSOZIB</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="tool-detail-section">
+        <div class="tool-container">
+            <h2>글자 수 세기</h2>
+            <p>텍스트를 입력하면 실시간으로 글자 수를 알려드려요.</p>
+            
+            <textarea id="text-input" placeholder="여기에 텍스트를 입력하거나 붙여넣기 하세요..." rows="8"></textarea>
+
+            <div class="result-box">
+                <div class="result-item">
+                    <span>공백 포함</span>
+                    <strong id="count-total">0</strong>
+                </div>
+                <div class="result-item">
+                    <span>공백 제외</span>
+                    <strong id="count-nospace">0</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">SOSOZIB</div>
+        <div class="footer-copy">© 2024 SOSOZIB</div>
+    </footer>
+
+    <script src="text-counter.js"></script>
+</body>
+</html>

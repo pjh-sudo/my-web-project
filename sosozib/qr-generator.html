@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR 생성기 - 소소집</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo" style="text-decoration: none;">SOSOZIB</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="tool-detail-section">
+        <div class="tool-container">
+            <h2>QR 생성기</h2>
+            <p>링크나 텍스트를 입력하면 QR 코드로 변환해 드려요.</p>
+            
+            <div class="input-group">
+                <input type="text" id="qr-input" placeholder="https://google.com">
+                <button onclick="generateQR()">생성하기</button>
+            </div>
+
+            <div id="qrcode-box"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">SOSOZIB</div>
+        <div class="footer-copy">© 2024 SOSOZIB</div>
+    </footer>
+
+    <script src="qr.js"></script>
+</body>
+</html>
