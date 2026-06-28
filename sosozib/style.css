@@ -521,3 +521,40 @@ header nav ul li a:hover {
         gap: 15px;
     }
 }
+
+/* =========================================
+       비밀번호 생성기 & 컬러 팔레트 모바일 수정
+       ========================================= */
+       
+    /* 1. 비밀번호 생성기: 입력창과 버튼을 세로로 층층이 쌓기 */
+    .password-display {
+        flex-direction: column;
+    }
+    
+    .password-display input {
+        font-size: 16px; /* 좁은 화면에 맞춰 폰트 크기를 살짝 줄임 */
+        padding: 15px;
+    }
+    
+    .password-display button {
+        padding: 15px; /* 손가락으로 누르기 편하도록 높이 확보 */
+    }
+
+    /* 2. 컬러 팔레트: 세로 기둥 5개를 가로줄 5개로 변경 */
+    .palette-container {
+        flex-direction: column; /* 세로 방향으로 층층이 쌓음 */
+        height: 500px; /* 5줄이 들어가도록 전체 높이를 충분히 늘려줌 */
+    }
+
+    .color-box {
+        flex-direction: row; /* 기둥 안의 자물쇠와 글자를 가로로 배치 */
+        justify-content: center; /* 가운데 정렬 */
+        padding-bottom: 0; /* 기존에 있던 아래쪽 여백 제거 */
+    }
+
+    /* 모바일에서는 자물쇠를 맨 위가 아닌, 각 색상 줄의 왼쪽에 깔끔하게 고정 */
+    .lock-btn {
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%); /* 정확히 세로 기준 가운데에 오도록 마법 부리기 */
+    }
