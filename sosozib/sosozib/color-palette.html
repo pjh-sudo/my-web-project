@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>컬러 팔레트 - 소소집</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo" style="text-decoration: none;">SOSOZIB</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="tool-detail-section">
+        <div class="tool-container" style="max-width: 800px;">
+            <h2>랜덤 컬러 팔레트</h2>
+            <p>버튼(space bar)을 눌러 새로운 색상 조합을 발견하세요. 색상을 클릭하면 코드가 바로 복사됩니다.</p>
+            
+            <div class="palette-container" id="palette-container">
+                </div>
+
+            <button class="generate-btn" onclick="generatePalette()">새로운 색상 조합 보기</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">SOSOZIB</div>
+        <div class="footer-copy">© 2024 SOSOZIB</div>
+    </footer>
+
+    <script src="color.js"></script>
+    <div id="toast" class="toast">색상이 복사되었습니다! 🎨</div>
+
+    <script src="color.js"></script>
+</body>
+</body>
+</html>

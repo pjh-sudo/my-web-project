@@ -1,0 +1,523 @@
+/* 1. CSS 변수 설정 (유지보수를 위한 핵심!) */
+/* 나중에 사이트 메인 색상을 바꾸고 싶다면 여기 있는 색상 코드만 바꾸면 전체가 한 번에 변경됩니다. */
+:root {
+    --bg-color: #f4f6fa;       /* 전체 배경색 (아주 연한 푸른빛 회색) */
+    --point-color: #2b3a55;    /* 포인트 컬러 (버튼 등에 쓰이는 네이비) */
+    --text-main: #222222;      /* 기본 진한 글자색 */
+    --text-sub: #777777;       /* 설명에 쓰이는 연한 글자색 */
+    --border-color: #e9ecef;   /* 테두리 색상 */
+    --white: #ffffff;
+}
+
+/* 2. 기본 여백 초기화 및 폰트 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 테두리 두께가 크기에 영향을 주지 않도록 설정 */
+    font-family: 'Pretendard', -apple-system, sans-serif; /* 깔끔한 기본 폰트 적용 */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* 3. 전체 레이아웃 잡기 */
+/* 헤더, 배너, 툴 목록이 화면 가운데에 적당한 너비로 오도록 맞춥니다. */
+header, .hero-section, .tools-section, footer {
+    max-width: 1200px;
+    margin: 0 auto; /* 좌우 여백을 자동으로 맞춰서 가운데 정렬 */
+    padding: 20px;
+}
+
+/* 4. 헤더 영역 (Flexbox 사용) */
+header {
+    display: flex; /* 요소들을 가로로 나열 */
+    justify-content: space-between; /* 양 끝으로 밀어내기 */
+    align-items: center; /* 세로 기준 가운데 정렬 */
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--point-color);
+}
+
+header nav ul {
+    display: flex;
+    list-style: none; /* 기본 점 없애기 */
+    gap: 30px; /* 메뉴 사이 간격 */
+    color: var(--text-sub);
+    font-size: 15px;
+}
+
+/* 5. 메인 배너 (Hero) 및 검색창 영역 */
+.hero-section {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero-section h1 {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.hero-section p {
+    font-size: 18px;
+    color: var(--text-sub);
+    margin-bottom: 40px;
+}
+
+/* 검색창 둥글게 만들기 */
+.search-box {
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 40px; /* 알약 모양처럼 완전 둥글게 */
+    padding: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03); /* 아주 연한 그림자 */
+}
+
+.search-box input {
+    flex: 1; /* 검색창이 남은 공간을 다 차지하도록 */
+    border: none;
+    padding: 15px 25px;
+    border-radius: 40px;
+    outline: none; /* 클릭 시 생기는 기본 테두리 없애기 */
+    font-size: 16px;
+    background: transparent;
+}
+
+.search-box button {
+    background-color: var(--point-color);
+    color: var(--white);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* 6. 최신 스몰 툴 영역 (Grid 사용 - 아주 중요!) */
+.tools-section h2 {
+    margin-bottom: 25px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.card-grid {
+    display: grid; /* 바둑판처럼 배치하는 Grid 모드 켜기 */
+    grid-template-columns: repeat(4, 1fr); /* 1비율(1fr)로 4칸 똑같이 나누기 */
+    gap: 20px; /* 카드 사이의 간격 */
+}
+
+/* 개별 카드 디자인 */
+.tool-card {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 16px; /* 모서리 둥글게 */
+    padding: 24px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* 마우스 올렸을 때 부드러운 효과 준비 */
+}
+
+/* 카드에 마우스 올렸을 때 (Hover) 효과 */
+.tool-card:hover {
+    transform: translateY(-5px); /* 위로 5px 붕 띄우기 */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* 그림자 진하게 */
+}
+
+.tool-card .icon {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #ff6b6b;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.tool-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.tool-card p {
+    font-size: 14px;
+    color: var(--text-sub);
+    margin-bottom: 20px;
+}
+
+.tool-card .tag {
+    display: inline-block;
+    background: #f1f3f5;
+    color: var(--text-sub);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+/* 7. 푸터 영역 */
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: var(--text-sub);
+    font-size: 14px;
+}
+/* --- 개별 툴 화면 (QR 생성기 등) 디자인 --- */
+.tool-detail-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.tool-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.tool-container h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.tool-container p {
+    color: var(--text-sub);
+    margin-bottom: 30px;
+}
+
+/* 입력창과 버튼을 가로로 배치 */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+.input-group button {
+    padding: 0 25px;
+    background-color: var(--point-color);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* QR 코드가 나타날 박스 디자인 */
+#qrcode-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 250px; /* QR코드가 없어도 영역을 확보해둠 */
+    background-color: var(--bg-color);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+/* 상단 메뉴바 링크 디자인 설정 */
+header nav ul li a {
+    text-decoration: none; /* 보기 싫은 기본 파란 밑줄 없애기 */
+    color: inherit; /* 원래 우리가 지정했던 부드러운 회색(text-sub) 유지하기 */
+    transition: color 0.2s ease; /* 마우스 올렸을 때 부드럽게 색이 변하도록 준비 */
+}
+
+/* 메뉴에 마우스를 올렸을 때 (Hover) */
+header nav ul li a:hover {
+    color: var(--point-color); /* 진한 네이비색으로 포인트 주기 */
+    font-weight: bold; /* 글씨 굵게 만들기 */
+}
+
+/* --- 글자 수 세기 전용 디자인 --- */
+#text-input {
+    width: 100%; /* 가로 공간을 꽉 채움 */
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    font-size: 16px;
+    outline: none;
+    resize: vertical; /* 사용자가 세로로만 크기를 늘릴 수 있게 허용 */
+    margin-bottom: 30px;
+    font-family: inherit; /* 사이트 기본 폰트를 그대로 따라가도록 설정 */
+    background-color: #fcfcfc;
+}
+
+#text-input:focus {
+    border-color: var(--point-color); /* 클릭(포커스)했을 때 테두리 색상 진하게 */
+}
+
+.result-box {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* 결과 박스 사이의 간격 */
+}
+
+.result-item {
+    background-color: var(--bg-color);
+    padding: 20px 40px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column; /* 세로로 글자 배치 */
+    align-items: center;
+    min-width: 150px;
+}
+
+.result-item span {
+    font-size: 14px;
+    color: var(--text-sub);
+    margin-bottom: 5px;
+}
+
+.result-item strong {
+    font-size: 32px;
+    color: var(--point-color);
+    font-weight: 900;
+}
+/* --- 비밀번호 생성기 전용 디자인 --- */
+.password-display {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.password-display input {
+    flex: 1;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 3px; /* 글자 사이 간격을 넓혀서 비밀번호가 잘 보이게 */
+    background-color: #f8f9fa;
+    border: 2px dashed var(--border-color); /* 점선 테두리로 포인트 주기 */
+    border-radius: 10px;
+    outline: none;
+    color: var(--point-color);
+}
+
+.password-display button {
+    padding: 0 20px;
+    background-color: #4dabf7; /* 하늘색 계열 포인트 컬러 */
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.generate-btn {
+    width: 100%; /* 버튼이 가로 공간을 꽉 채우도록 */
+    padding: 18px;
+    background-color: var(--point-color);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.generate-btn:hover {
+    background-color: #1a2538; /* 마우스 올렸을 때 더 진한 색으로 변함 */
+}
+
+/* --- 컬러 팔레트 전용 디자인 --- */
+.palette-container {
+    display: flex;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden; /* 모서리 둥글게 자르기 */
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* 예쁜 그림자 */
+}
+
+/* 개별 색상 기둥 디자인 */
+.color-box {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: center; 
+    padding-bottom: 20px;
+    /* gap: 15px; <- 이 줄은 이제 필요 없으니 지워주세요! */
+    cursor: pointer;
+    transition: flex 0.3s ease; 
+    
+    position: relative; /* 💡 핵심 1: 자물쇠가 도망가지 못하게 울타리(기준점)를 쳐줍니다. */
+}
+
+/* 마우스를 올리면 기둥이 살짝 넓어집니다 */
+.color-box:hover {
+    flex: 1.3; 
+}
+
+/* 색상 코드(HEX) 글자표 디자인 */
+.color-code {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    text-transform: uppercase; /* 영어를 무조건 대문자로 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.lock-btn {
+    background: rgba(255, 255, 255, 0.5); 
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%; 
+    transition: background 0.2s ease, transform 0.2s ease; 
+    
+    /* 💡 핵심 2: 공중에 띄워서 위치를 내 마음대로 지정합니다. */
+    position: absolute; 
+    top: 20px; /* 기둥 맨 위에서 20px만큼 띄워서 고정! */
+}
+
+.lock-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.1); 
+}
+
+/* --- 토스트 알림창 디자인 --- */
+.toast {
+    position: fixed; /* 화면 스크롤과 상관없이 화면의 특정 위치에 고정! */
+    bottom: -100px; /* 처음엔 화면 아래로 완전히 숨겨둡니다 */
+    left: 50%; /* 가로 기준 가운데로 오게 하기 */
+    transform: translateX(-50%); /* 정확한 가운데 정렬을 위한 마법 공식 */
+    background-color: #2b3a55; /* 진한 네이비 배경 */
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px; /* 알약 모양으로 둥글게 */
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* 은은한 그림자 */
+    transition: bottom 0.4s ease, opacity 0.4s ease; /* 스르륵 움직이는 애니메이션 준비 */
+    opacity: 0; /* 처음엔 투명하게 안 보이게 */
+    z-index: 1000; /* 항상 다른 요소들보다 맨 위에 떠 있도록 설정 */
+}
+
+/* 🚀 자바스크립트가 'show'라는 이름표를 붙여주면 적용될 디자인 */
+.toast.show {
+    bottom: 40px; /* 화면 아래에서 40px 위로 올라옵니다! */
+    opacity: 1; /* 글자가 선명하게 보입니다 */
+}
+
+/* --- 디데이 계산기 전용 디자인 --- */
+.dday-setup {
+    display: flex;
+    flex-direction: column; /* 요소를 위아래 세로로 배치합니다 */
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.dday-setup input {
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    font-family: inherit;
+}
+
+.dday-setup button {
+    padding: 16px;
+    background-color: var(--point-color);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.dday-setup button:hover {
+    background-color: #1a2538;
+}
+
+.dday-result-box {
+    background-color: var(--bg-color);
+    padding: 40px 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.dday-result-box h3 {
+    color: var(--text-sub);
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.dday-result-box .dday-number {
+    font-size: 48px;
+    font-weight: 900;
+    color: #ff6b6b; /* 눈에 띄는 코랄 레드 색상 */
+    letter-spacing: 2px;
+}
+
+/* =========================================
+   📱 모바일 & 태블릿 반응형 (미디어 쿼리)
+   ========================================= */
+
+/* 1. 화면 가로 너비가 768px 이하일 때 (태블릿 & 큰 스마트폰) */
+@media (max-width: 768px) {
+    /* 4칸이었던 메인 화면 카드를 2칸으로 변경 */
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* 메인 배너의 큰 제목 글자 크기를 모바일에 맞게 살짝 줄임 */
+    .hero-section h1 {
+        font-size: 32px;
+    }
+
+    /* QR 생성기, 디데이 계산기 등 입력창과 버튼이 좁아지면 세로로 배치 */
+    .input-group, .dday-setup {
+        flex-direction: column;
+    }
+    
+    /* 버튼이 화면 가로를 꽉 채우도록 변경 */
+    .input-group button, .dday-setup button {
+        width: 100%;
+    }
+}
+
+/* 2. 화면 가로 너비가 480px 이하일 때 (일반 스마트폰) */
+@media (max-width: 480px) {
+    /* 2칸이었던 메인 화면 카드를 1칸으로 변경 (화면 꽉 차게) */
+    .card-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    /* 상단 메뉴바(Home)와 로고가 좁은 화면에서도 예쁘게 보이도록 정렬 */
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
