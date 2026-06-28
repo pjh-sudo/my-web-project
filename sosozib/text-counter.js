@@ -1,18 +1,28 @@
-// 1. HTML에서 조작할 요소들(입력창, 결과 숫자들)을 찾아옵니다.
 const textInput = document.getElementById('text-input');
-const countTotal = document.getElementById('count-total');
-const countNoSpace = document.getElementById('count-nospace');
+const countWithSpaces = document.getElementById('count-with-spaces');
+const countWithoutSpaces = document.getElementById('count-without-spaces');
 
-// 2. 'input' 이벤트: 사용자가 키보드를 칠 때마다 실시간으로 이 안의 명령어들이 실행됩니다!
+// 1. 타자를 칠 때마다 실시간으로 글자 수 세기
 textInput.addEventListener('input', function() {
-    // 현재 입력창에 적힌 전체 글자 가져오기
     const text = textInput.value;
 
-    // [기능 A] 공백 포함 글자 수: 단순히 가져온 글자의 길이(.length)를 잽니다.
-    countTotal.textContent = text.length;
+    // [공백 포함] 글자 수: 단순히 전체 길이를 구합니다.
+    countWithSpaces.innerText = text.length;
 
-    // [기능 B] 공백 제외 글자 수: 띄어쓰기와 줄바꿈을 모두 찾아서 ''(빈칸)으로 지워버린 후 길이를 잽니다.
-    // (정규표현식 이라는 문법으로 \s 가 모든 형태의 공백을 의미합니다)
-    const textWithoutSpace = text.replace(/\s/g, '');
-    countNoSpace.textContent = textWithoutSpace.length;
+    // [공백 제외] 글자 수: 정규식(/\s+/g)이라는 마법을 써서 띄어쓰기와 줄바꿈을 모두 없앤 뒤 길이를 구합니다.
+    const textWithoutSpaces = text.replace(/\s+/g, '');
+    countWithoutSpaces.innerText = textWithoutSpaces.length;
 });
+
+// 2. 전체 지우기 (초기화) 기능
+function clearText() {
+    // 텍스트 창 비우기
+    textInput.value = ''; 
+    
+    // 화면에 표시된 숫자도 0으로 돌려놓기
+    countWithSpaces.innerText = '0';
+    countWithoutSpaces.innerText = '0';
+    
+    // 버튼을 누른 후 바로 다시 타이핑할 수 있도록 입력창에 커서를 깜빡이게 둡니다.
+    textInput.focus(); 
+}

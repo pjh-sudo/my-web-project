@@ -214,8 +214,11 @@ footer {
     outline: none;
 }
 
+/* 💡 수정 전: padding: 0 25px; (위아래 여백이 0이었습니다) */
+
+/* 🚀 수정 후: 위아래 여백을 15px로 넉넉하게 늘려줍니다 */
 .input-group button {
-    padding: 0 25px;
+    padding: 15px 25px; 
     background-color: var(--point-color);
     color: var(--white);
     border: none;
@@ -558,3 +561,178 @@ header nav ul li a:hover {
         left: 20px;
         transform: translateY(-50%); /* 정확히 세로 기준 가운데에 오도록 마법 부리기 */
     }
+
+    /* --- QR 생성기 다운로드 버튼 디자인 --- */
+.download-btn {
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: #20c997; /* 눈에 띄는 민트색 */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 100%; /* 버튼이 가로로 꽉 차게 */
+    display: none; /* 💡 핵심: 처음에는 안 보이게 숨겨둡니다! */
+}
+
+.download-btn:hover {
+    background-color: #12b886; /* 마우스 올렸을 때 살짝 진해짐 */
+}
+
+/* --- SEO 텍스트 영역 디자인 --- */
+.seo-text-section {
+    max-width: 800px;
+    margin: 40px auto 80px auto; /* 위아래 여백을 넉넉하게 */
+    padding: 0 20px;
+}
+
+.seo-article {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02); /* 아주 연한 그림자로 깔끔하게 */
+    color: var(--text-main);
+}
+
+.seo-article h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--point-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.seo-article h4 {
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: var(--point-color);
+}
+
+.seo-article p {
+    font-size: 16px;
+    line-height: 1.8; /* 글이 많을 때는 줄 간격을 넓혀야 읽기 편합니다 */
+    color: var(--text-sub);
+    margin-bottom: 15px;
+}
+
+/* --- 글자 수 세기 툴 전용 디자인 업데이트 --- */
+.input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#text-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: inherit;
+    resize: vertical; /* 사용자가 세로로만 크기를 조절할 수 있게 함 */
+    outline: none;
+}
+
+.clear-btn {
+    padding: 12px;
+    background-color: #ff6b6b; /* 눈에 띄는 붉은색 포인트 */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.clear-btn:hover {
+    background-color: #fa5252; /* 마우스 올렸을 때 살짝 진해짐 */
+}
+
+/* 결과창 두 개 나란히 배치하기 */
+.result-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.result-box {
+    flex: 1; /* 두 상자가 정확히 1:1 비율로 가로 크기를 나눠 가짐 */
+    background-color: var(--bg-color);
+    padding: 25px 10px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.result-box h3 {
+    color: var(--text-sub);
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.count-number {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--point-color);
+}
+
+/* 모바일 화면에서는 결과창도 위아래로 쌓이게 */
+@media (max-width: 480px) {
+    .result-container {
+        flex-direction: column;
+    }
+}
+
+/* --- 비밀번호 생성기 옵션 패널 전용 디자인 --- */
+.options-panel {
+    background-color: var(--bg-color);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.option-group {
+    margin-bottom: 20px;
+}
+
+.option-group:last-child {
+    margin-bottom: 0;
+}
+
+.option-group label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: var(--text-main);
+}
+
+/* 슬라이더(range) 디자인 */
+input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+    accent-color: var(--point-color); /* 슬라이더 색상을 테마에 맞춤 */
+}
+
+/* 체크박스 정렬 */
+.checkboxes label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.checkboxes input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--point-color);
+}
