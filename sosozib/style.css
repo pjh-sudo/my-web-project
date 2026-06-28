@@ -480,3 +480,44 @@ header nav ul li a:hover {
     color: #ff6b6b; /* 눈에 띄는 코랄 레드 색상 */
     letter-spacing: 2px;
 }
+
+/* =========================================
+   📱 모바일 & 태블릿 반응형 (미디어 쿼리)
+   ========================================= */
+
+/* 1. 화면 가로 너비가 768px 이하일 때 (태블릿 & 큰 스마트폰) */
+@media (max-width: 768px) {
+    /* 4칸이었던 메인 화면 카드를 2칸으로 변경 */
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* 메인 배너의 큰 제목 글자 크기를 모바일에 맞게 살짝 줄임 */
+    .hero-section h1 {
+        font-size: 32px;
+    }
+
+    /* QR 생성기, 디데이 계산기 등 입력창과 버튼이 좁아지면 세로로 배치 */
+    .input-group, .dday-setup {
+        flex-direction: column;
+    }
+    
+    /* 버튼이 화면 가로를 꽉 채우도록 변경 */
+    .input-group button, .dday-setup button {
+        width: 100%;
+    }
+}
+
+/* 2. 화면 가로 너비가 480px 이하일 때 (일반 스마트폰) */
+@media (max-width: 480px) {
+    /* 2칸이었던 메인 화면 카드를 1칸으로 변경 (화면 꽉 차게) */
+    .card-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    /* 상단 메뉴바(Home)와 로고가 좁은 화면에서도 예쁘게 보이도록 정렬 */
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
