@@ -3,22 +3,10 @@
 :root {
     --bg-color: #f4f6fa;       /* 전체 배경색 (아주 연한 푸른빛 회색) */
     --point-color: #2b3a55;    /* 포인트 컬러 (버튼 등에 쓰이는 네이비) */
-    --text-color: #222222;     /* 기본 진한 글자색 */
+    --text-main: #222222;      /* 기본 진한 글자색 */
     --text-sub: #777777;       /* 설명에 쓰이는 연한 글자색 */
     --border-color: #e9ecef;   /* 테두리 색상 */
-    --card-bg: #ffffff;        /* 💡 기존 --white를 --card-bg로 이름 변경! */
-}
-
-/* 2. 🌙 다크 모드 색상 변수 */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg-color: #121212;       /* 전체 배경색 (어두운 회색) */
-        --point-color: #6482ad;    /* 포인트 컬러 (어두운 곳에서 잘 보이게 살짝 밝게) */
-        --text-color: #f5f5f5;     /* 밝은 글자색 */
-        --text-sub: #a0a0a0;       /* 다크모드용 연한 글자색 */
-        --border-color: #333333;   /* 어두운 테두리 색상 */
-        --card-bg: #1e1e1e;        /* 💡 다크모드용 카드 배경색 */
-    }
+    --white: #ffffff;
 }
 
 /* 2. 기본 여백 초기화 및 폰트 설정 */
