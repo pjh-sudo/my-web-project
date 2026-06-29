@@ -33,16 +33,27 @@ function generateQR() {
 function downloadQR() {
     const qrBox = document.getElementById('qrcode-box');
     
-    // qrcode.js 라이브러리는 우리 몰래 <img> 태그 안에 QR코드를 그립니다. 그 이미지를 찾아옵니다.
+    // 이미지 요소와 캔버스 요소를 모두 찾습니다.
     const qrImage = qrBox.querySelector('img'); 
+    const qrCanvas = qrBox.querySelector('canvas'); 
 
-    if (qrImage && qrImage.src) {
-        // 다운로드를 위한 임시 하이퍼링크(<a> 태그)를 자바스크립트로 몰래 만듭니다.
+    let imageURI = "";
+
+    // 플랜 A: 이미지가 정상적으로 생성되었고 src 속성(데이터)이 있는 경우 (주로 PC)
+    if (qrImage && qrImage.getAttribute('src')) {
+        imageURI = qrImage.getAttribute('src');
+    }
+    // 플랜 B: 이미지는 아직 없지만 캔버스(스케치북)가 있는 경우 (주로 모바일)
+    // 캔버스에 그려진 그림을 직접 PNG 이미지 데이터로 변환해서 가져옵니다.
+    else if (qrCanvas) {
+        imageURI = qrCanvas.toDataURL("image/png");
+    }
+
+    // 성공적으로 이미지 데이터를 가져왔다면 다운로드 실행
+    if (imageURI) {
         const downloadLink = document.createElement('a');
-        downloadLink.href = qrImage.src; // 이미지 주소 복사
-        downloadLink.download = 'sosozib_qrcode.png'; // 저장될 파일 이름 설정
-        
-        // 사용자가 링크를 클릭한 것처럼 컴퓨터가 대신 클릭하게 만듭니다!
+        downloadLink.href = imageURI; 
+        downloadLink.download = 'sosozib_qrcode.png'; 
         downloadLink.click(); 
     } else {
         alert("QR 코드를 먼저 생성해주세요!");
