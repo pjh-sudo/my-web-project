@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>소소집</title>
     <link rel="stylesheet" href="style.css">
+    /* 파비콘 코드 */
+    <link rel="icon" href="favicon.png">
 </head>
 <body>
 
@@ -24,7 +26,7 @@
         <h1>소소집</h1>
         <p>요즘 필요한, 작지만 유용한 툴을 모아뒀어요.</p>
         <div class="search-box">
-            <input type="text" placeholder="검색어를 입력하세요...">
+            <input type="text" id="search-input" placeholder="필요한 툴을 검색해 보세요 (예: QR, 글자 수)">
             <button>Explore Tools</button>
         </div>
     </section>
@@ -73,6 +75,14 @@
                     <span class="tag">유틸리티</span>
                 </div>
             </a>
+            <a href="unit-converter.html" style="text-decoration: none; color: inherit;">
+                <div class="tool-card">
+                    <div class="icon" style="color: #ff8787;">📏</div>
+                    <h3>단위 변환기</h3>
+                    <p>인치, 평수 등 헷갈리는 단위를 쉽게 변환해보세요.</p>
+                    <span class="tag">생활/유틸</span>
+                </div>
+            </a>
             
             </div>
     </section>
@@ -84,6 +94,27 @@
             © 2026 SOSOZIB
         </div>
     </footer>
+    <script>
+        const searchInput = document.getElementById('search-input');
+        const toolCards = document.querySelectorAll('.tool-card');
 
+        searchInput.addEventListener('input', function() {
+            const keyword = searchInput.value.toLowerCase();
+
+            toolCards.forEach(card => {
+                const cardText = card.innerText.toLowerCase();
+                
+                // 💡 핵심: 카드를 감싸고 있는 <a> 태그(부모 요소)를 통째로 선택합니다
+                const parentLink = card.parentElement; 
+
+                if (cardText.includes(keyword)) {
+                    parentLink.style.display = "block"; // 껍데기째로 보여주기
+                } else {
+                    parentLink.style.display = "none";  // 껍데기째로 숨기기 (자리 차지 안 함!)
+                }
+            });
+        });
+    </script>
+</body>
 </body>
 </html>

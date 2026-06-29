@@ -819,3 +819,68 @@ input[type="range"] {
     align-items: center;
 }
 .anniversary-box { font-size: 0.9em; color: var(--text-sub); margin-top: 10px; }
+
+/* --- 단위 변환기 UI 디자인 --- */
+.converter-box {
+    background: var(--bg-color);
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.unit-select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+}
+
+.convert-inputs {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* 기존 input-group 스타일과 충돌하지 않게 덮어쓰기 */
+.convert-inputs .input-group {
+    flex: 1;
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.convert-inputs label {
+    font-size: 14px;
+    color: var(--text-sub);
+    margin-bottom: 5px;
+    display: block;
+}
+
+.convert-inputs input {
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.switch-icon {
+    font-size: 24px;
+    color: var(--point-color);
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* 모바일 화면에서는 위아래로 배치 */
+@media (max-width: 480px) {
+    .convert-inputs {
+        flex-direction: column;
+    }
+    .switch-icon {
+        transform: rotate(90deg); /* 아이콘을 세로로 회전 */
+        margin-top: 0;
+    }
+}
