@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 형식 변환기 - 소소집</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo" style="text-decoration: none;">SOSOZIB</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="tool-detail-section">
+        <div class="tool-container" style="max-width: 700px; margin: 0 auto;">
+            <h2>이미지 형식 변환기 🖼️</h2>
+            <p>서버 업로드 없이 브라우저에서 안전하고 빠르게 변환하세요. (여러 장 가능)</p>
+            
+            <div class="convert-settings" style="margin-bottom: 15px; display: flex; gap: 10px; align-items: center;">
+                <label style="font-weight: bold;">어떤 형식으로 바꿀까요?</label>
+                <select id="format-select" style="padding: 8px; border-radius: 5px; border: 1px solid #ddd;">
+                    <option value="image/webp">WebP (추천! 용량 대폭 감소)</option>
+                    <option value="image/jpeg">JPG</option>
+                    <option value="image/png">PNG</option>
+                </select>
+            </div>
+
+            <div class="upload-box" id="upload-box">
+                <input type="file" id="file-input" accept="image/png, image/jpeg, image/webp" multiple hidden>
+                <div class="upload-content">
+                    <span style="font-size: 40px;">📁</span>
+                    <p>클릭하거나 이미지를 여기로 드래그하세요</p>
+                    <small>지원 형식: JPG, PNG, WebP (서버에 저장되지 않아 안전합니다!)</small>
+                </div>
+            </div>
+
+            <div id="result-list" class="result-list"></div>
+        </div>
+    </section>
+
+    <section class="seo-text-section">
+        <article class="seo-article">
+            </article>
+    </section>
+
+    <footer>
+        <div class="footer-logo">SOSOZIB</div>
+        <div class="footer-copy">© 2026 SOSOZIB</div>
+    </footer>
+
+    <script src="image-converter.js"></script>
+</body>
+</html>

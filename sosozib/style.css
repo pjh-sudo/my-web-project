@@ -892,3 +892,116 @@ input[type="range"] {
         margin-top: 0;
     }
 }
+
+/* --- 이미지 변환기 UI 디자인 --- */
+.upload-box {
+    border: 2px dashed #ccc;
+    border-radius: 15px;
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-box:hover, .upload-box.dragover {
+    background-color: #f0f8ff;
+    border-color: var(--point-color);
+}
+
+.upload-content p {
+    margin: 15px 0 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+}
+
+.upload-content small {
+    color: #888;
+}
+
+/* 변환 결과 리스트 스타일 - 🚀 스크롤 기능 추가 */
+.result-list {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 500px;    /* 🚀 최대 높이를 500px로 제한 */
+    overflow-y: auto;     /* 🚀 내용이 많아지면 스크롤바가 자동으로 생김 */
+    padding-right: 10px;  /* 스크롤바 때문에 내용이 잘리지 않게 여유 공간 */
+}
+
+/* 스크롤바 예쁘게 꾸미기 (옵션) */
+.result-list::-webkit-scrollbar {
+    width: 6px;
+}
+.result-list::-webkit-scrollbar-thumb {
+    background-color: #ddd;
+    border-radius: 3px;
+}
+
+.result-item {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    gap: 15px;
+}
+
+.result-item img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.result-info {
+    flex: 1;
+}
+
+.result-info strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.05em;
+    word-break: break-all;
+}
+
+.size-info {
+    font-size: 0.9em;
+    color: var(--text-sub);
+}
+
+.size-info span {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* 수정된 다운로드 버튼 스타일 */
+.download-btn {
+    background-color: #9b59b6; /* 안전하게 보라색으로 직접 지정! */
+    color: #ffffff !important; /* 글자는 무조건 흰색! */
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap; /* 글자가 줄바꿈되지 않게 방어 */
+    display: inline-block; /* 버튼 모양 유지 */
+    flex-shrink: 0; /* 🚀 핵심: 화면이 좁아져도 버튼이 찌그러지지 않게 방어! */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 예쁜 그림자 추가 */
+}
+
+/* 파일 이름이 너무 길 때 잘라주는 안전장치 */
+.result-info strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.05em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* 너무 길면 '...'으로 표시 */
+    max-width: 300px;
+}
