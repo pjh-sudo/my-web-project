@@ -1005,3 +1005,21 @@ input[type="range"] {
     text-overflow: ellipsis; /* 너무 길면 '...'으로 표시 */
     max-width: 300px;
 }
+
+/* --- 전체 다운로드(ZIP) 버튼 스타일 --- */
+.zip-btn {
+    background-color: #2ecc71; /* 눈에 띄는 초록색 */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.zip-btn:hover {
+    transform: translateY(-2px); /* 마우스 올리면 살짝 위로 뜸 */
+}
