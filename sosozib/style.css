@@ -1023,3 +1023,68 @@ input[type="range"] {
 .zip-btn:hover {
     transform: translateY(-2px); /* 마우스 올리면 살짝 위로 뜸 */
 }
+
+/* --- 부가세 & 퍼센트 계산기 UI --- */
+.calc-box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.radio-group label {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+.result-box {
+    background-color: #f9f9f9;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: #555;
+}
+
+.result-row:last-child {
+    margin-bottom: 0;
+}
+
+.result-row.total {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 🚀 1. 부가세 계산기 숫자가 길어질 때 박스 뚫림 방지 */
+.result-row strong {
+    word-break: break-all; /* 글자가 상자 끝에 닿으면 강제로 줄바꿈 */
+    text-align: right;
+    max-width: 65%; /* 왼쪽 텍스트(예: '합계금액')를 침범하지 않도록 여백 확보 */
+    line-height: 1.4; /* 줄바꿈 되었을 때 글자 위아래 간격 */
+}
+
+/* 🚀 2. 퍼센트 계산기 입력칸을 둥글고 예쁘게 만들기 */
+#pct-a, #pct-b {
+    border: 1px solid #ddd; /* 튀지 않는 부드러운 테두리 */
+    border-radius: 8px; /* 모서리를 둥글게! */
+    background-color: #fff;
+    outline: none; /* 클릭했을 때 생기는 기본 못생긴 테두리 제거 */
+    transition: all 0.3s ease;
+}
+
+/* 🚀 3. 퍼센트 입력칸을 클릭했을 때 포인트 컬러 테두리 띄우기 (디테일!) */
+#pct-a:focus, #pct-b:focus {
+    border-color: var(--point-color);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
