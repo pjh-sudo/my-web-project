@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 디자인 생성기 - 소소집</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo" style="text-decoration: none;">SOSOZIB</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="tool-detail-section">
+        <div class="tool-container" style="max-width: 800px; margin: 0 auto;">
+            <h2>CSS 디자인 생성기 🎨</h2>
+            <p>그림자(Box-Shadow)를 조절하고 CSS 코드를 바로 복사하세요.</p>
+
+            <div class="css-generator-layout" style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 30px;">
+                
+                <div class="preview-panel" style="flex: 1; min-width: 250px; display: flex; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 12px; padding: 50px; border: 1px solid #eee;">
+                    <div id="preview-box" style="width: 180px; height: 180px; background: #ffffff; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #555;">
+                        미리보기
+                    </div>
+                </div>
+
+                <div class="control-panel" style="flex: 1; min-width: 300px; background: #fff; padding: 20px; border-radius: 12px; border: 1px solid #ddd; box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
+                    
+                    <div style="margin-bottom: 20px; font-weight: bold; font-size: 1.1em; border-bottom: 2px solid #eee; padding-bottom: 10px;">
+                        그림자(Shadow) 설정
+                    </div>
+
+                    <div id="control-shadow">
+                        <label style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; font-size: 14px;">
+                            <span>가로 위치 (X)</span>
+                            <div>
+                                <input type="number" id="val-x" value="10" style="width: 60px; padding: 4px; border: 1px solid #ddd; border-radius: 5px; text-align: center; font-weight: bold; color: var(--point-color); outline: none;"> px
+                            </div>
+                        </label>
+                        <input type="range" id="input-x" min="-50" max="50" value="10" style="width: 100%; margin-bottom: 20px; cursor: pointer;">
+
+                        <label style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; font-size: 14px;">
+                            <span>세로 위치 (Y)</span>
+                            <div>
+                                <input type="number" id="val-y" value="10" style="width: 60px; padding: 4px; border: 1px solid #ddd; border-radius: 5px; text-align: center; font-weight: bold; color: var(--point-color); outline: none;"> px
+                            </div>
+                        </label>
+                        <input type="range" id="input-y" min="-50" max="50" value="10" style="width: 100%; margin-bottom: 20px; cursor: pointer;">
+
+                        <label style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; font-size: 14px;">
+                            <span>흐림 정도 (Blur)</span>
+                            <div>
+                                <input type="number" id="val-blur" min="0" max="100" value="15" style="width: 60px; padding: 4px; border: 1px solid #ddd; border-radius: 5px; text-align: center; font-weight: bold; color: var(--point-color); outline: none;"> px
+                            </div>
+                        </label>
+                        <input type="range" id="input-blur" min="0" max="100" value="15" style="width: 100%; margin-bottom: 20px; cursor: pointer;">
+
+                        <div style="display: flex; gap: 15px; margin-bottom: 10px;">
+                            <div style="flex: 1;">
+                                <label style="display: block; margin-bottom: 5px; font-size: 14px;">그림자 색상</label>
+                                <input type="color" id="input-color" value="#000000" style="width: 100%; height: 40px; border: none; cursor: pointer;">
+                            </div>
+                            <div style="flex: 1;">
+                                <label style="display: block; margin-bottom: 5px; font-size: 14px;">투명도 (Opacity)</label>
+                                <input type="range" id="input-opacity" min="0" max="1" step="0.05" value="0.2" style="width: 100%; margin-top: 10px; cursor: pointer;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 25px; background: #282c34; padding: 15px; border-radius: 8px; position: relative;">
+                        <code id="css-code" style="color: #abb2bf; word-break: break-all; font-size: 14px;">box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);</code>
+                        <button id="copy-btn" style="position: absolute; top: 10px; right: 10px; padding: 5px 12px; background: #61afef; border: none; border-radius: 5px; color: #282c34; font-weight: bold; cursor: pointer;">복사</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seo-text-section">
+        <article class="seo-article">
+            <h3>블로그와 웹사이트를 돋보이게 하는 CSS 그림자(Box-Shadow) 생성기</h3>
+            <p>웹 디자인을 하거나 티스토리, 워드프레스 블로그 스킨을 편집할 때 가장 까다로운 부분 중 하나가 바로 자연스러운 그림자(Box-Shadow)를 만드는 것입니다. 소소집의 <strong>CSS 디자인 생성기</strong>를 활용하면 코딩 지식이 없어도 누구나 직관적으로 예쁜 그림자 효과를 만들고 적용할 수 있습니다.</p>
+            
+            <h4>1. 실시간 미리보기와 정밀한 수치 조절</h4>
+            <p>그림자의 가로(X), 세로(Y) 위치와 흐림 정도(Blur)를 마우스 슬라이더로 부드럽게 조절해 보세요. 섬세한 작업이 필요하다면 숫자 입력창에 원하는 픽셀(px) 값을 직접 입력할 수도 있습니다. 화면 좌측의 미리보기 상자를 통해 디자인이 어떻게 변하는지 <strong>실시간으로 확인</strong>할 수 있어 작업 시간을 획기적으로 단축해 줍니다.</p>
+            
+            <h4>2. 투명도를 반영한 완벽한 RGBA 코드 변환</h4>
+            <p>세련된 웹 디자인의 핵심은 '투명도'에 있습니다. 원하는 색상을 선택하고 투명도(Opacity) 슬라이더를 조절하면, 생성기가 알아서 가장 웹 표준에 맞는 <strong>RGBA 색상 코드</strong>로 변환해 줍니다. 어색하고 진한 그림자 대신, 요즘 트렌드에 맞는 부드럽고 고급스러운 입체감을 연출해 보세요.</p>
+            
+            <h4>3. 원클릭 CSS 코드 복사</h4>
+            <p>마음에 드는 디자인을 완성하셨나요? 화면 하단에 자동으로 생성된 <code>box-shadow</code> CSS 코드를 확인하고 <strong>[복사]</strong> 버튼을 누르기만 하면 됩니다. 복사한 코드는 운영 중인 웹사이트나 블로그의 스타일시트(CSS)에 바로 붙여넣어 사용할 수 있습니다. 소소집의 모든 유틸리티는 설치나 가입 없이 100% 무료로 제공됩니다.</p>
+        </article>
+    </section>
+
+    <footer>
+        <div class="footer-logo">SOSOZIB</div>
+        <div class="footer-copy">© 2026 SOSOZIB</div>
+    </footer>
+
+    <script src="css-generator.js"></script>
+</body>
+</html>
