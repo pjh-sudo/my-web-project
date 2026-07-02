@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>룰렛 돌리기 - 소소집</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="google-adsense-account" content="ca-pub-1418602449823851">
+    <link rel="icon" href="favicon.png">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo" style="text-decoration: none;">SOSOZIB</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1418602449823851"
+        crossorigin="anonymous"></script>
+    </header>
+
+    <section class="tool-detail-section">
+        <div class="tool-container roulette-container">
+            <h2>룰렛 돌리기 🎡</h2>
+            <p>결정하기 힘들 때, 선택지를 넣고 룰렛을 돌려보세요.</p>
+            
+            <div class="roulette-wrapper">
+                <div class="roulette-arrow"></div>
+                <div class="roulette-center-pin"></div>
+                <canvas id="roulette-canvas" width="600" height="600"></canvas>
+            </div>
+
+            <!-- 당첨 결과 창 -->
+            <div id="result-display" class="result-box-roulette">
+                선택된 결과: <strong id="result-value">-</strong>
+            </div>
+
+            <div class="options-box">
+                <label for="option-input">선택지 추가</label>
+                <div class="input-group">
+                    <input type="text" id="option-input" placeholder="새로운 선택지를 입력하세요 (예: 치킨)">
+                    <button id="add-option-btn">추가</button>
+                </div>
+
+                <label>현재 선택지 목록</label>
+                <div id="option-list-container" class="option-tags">
+                    <!-- 자바스크립트로 태그 삽입 예정 -->
+                </div>
+            </div>
+
+            <div class="action-buttons" style="margin-top: 25px;">
+                <button id="spin-btn" class="generate-btn" style="flex: 2;">돌리기 🔄</button>
+                <button id="reset-btn" class="secondary-btn" style="flex: 1; padding: 18px; border-radius: 10px; font-size: 16px;">초기화 🧹</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="seo-text-section">
+        <article class="seo-article">
+            <h3>결정이 고민될 때! 룰렛 돌리기(랜덤 추첨기) 활용 가이드</h3>
+            <p>소소집의 룰렛 돌리기는 일상에서 겪는 수많은 선택의 고민을 빠르고 재미있게 해결해 드리는 랜덤 추첨 도구입니다. 복잡한 설치 없이 브라우저에서 바로 동작합니다.</p>
+            
+            <h4>1. 소소집 룰렛 돌리기는 어떻게 사용하나요?</h4>
+            <p>사용 방법은 매우 간단합니다. 기본적으로 한국인들이 자주 고민하는 메뉴(짜장면, 짬뽕, 피자, 치킨, 삼겹살)가 기본 선택지로 입력되어 있습니다. 자신만의 커스텀 선택지를 넣고 싶다면 하단의 <strong>'선택지 추가'</strong> 칸에 원하는 항목을 입력하고 추가 버튼을 누르시면 됩니다. 불필요한 항목은 태그 옆의 'x' 버튼을 눌러 쉽게 제거할 수 있습니다.</p>
+            
+            <h4>2. 오늘 점심 메뉴부터 벌칙 정하기까지 다양하게 활용하기</h4>
+            <p>룰렛 돌리기는 아래와 같은 상황에서 유용하게 쓰일 수 있습니다:</p>
+            <ul>
+                <li>직장 동료나 친구들과 오늘 점심/저녁 메뉴를 고를 때</li>
+                <li>간단한 게임이나 모임에서 벌칙 대상자 또는 당첨자를 선정할 때</li>
+                <li>공부 과목 순서나 해야 할 집안일 분담을 무작위로 정하고 싶을 때</li>
+                <li>여러 갈림길에서 빠른 결단이 필요할 때</li>
+            </ul>
+            
+            <h4>3. 100% 공정하고 안전한 실시간 웹 룰렛</h4>
+            <p>소소집의 룰렛 추첨기는 서버와의 통신 없이 사용자의 웹 브라우저 안에서 직접 회전 각도를 계산하여 100% 무작위 난수 기반으로 결과를 도출합니다. 데이터가 외부로 유출되거나 조작되지 않으므로, 누구나 안심하고 투명하고 공정한 추첨을 즐길 수 있습니다.</p>
+        </article>
+    </section>
+
+    <footer>
+        <div class="footer-logo">SOSOZIB</div>
+        <div class="footer-copy">© 2026 SOSOZIB</div>
+    </footer>
+
+    <script src="roulette.js"></script>
+</body>
+</html>
