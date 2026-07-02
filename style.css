@@ -2004,3 +2004,462 @@ input[type="range"] {
         height: 260px;
     }
 }
+
+/* --- 13. 뽀모도로 & 집중 타이머 전용 스타일 --- */
+
+.pomodoro-container {
+    max-width: 650px !important;
+}
+
+/* 상태별 색상 테마 변수 (뽀모도로 내부에서 사용) */
+body.pomodoro-page {
+    --theme-color: #ff6b6b; /* 기본: 집중 (Red) */
+    --theme-color-rgb: 255, 107, 107;
+}
+
+body.pomodoro-page.mode-short {
+    --theme-color: #20c997; /* 짧은 휴식 (Teal) */
+    --theme-color-rgb: 32, 201, 151;
+}
+
+body.pomodoro-page.mode-long {
+    --theme-color: #4dabf7; /* 긴 휴식 (Blue) */
+    --theme-color-rgb: 77, 171, 247;
+}
+
+/* 모드 선택 탭 */
+.pomodoro-modes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.mode-tab {
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    background-color: #f1f3f5;
+    color: var(--text-sub);
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mode-tab:hover {
+    background-color: #e9ecef;
+    color: var(--text-main);
+}
+
+.mode-tab.active {
+    background-color: var(--white);
+    border-color: var(--theme-color);
+    color: var(--theme-color);
+    box-shadow: 0 4px 12px rgba(var(--theme-color-rgb), 0.15);
+}
+
+/* 타이머 시각화 영역 */
+.timer-visual-wrapper {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg); /* 12시 방향부터 채워지도록 회전 */
+}
+
+.timer-circle-bg {
+    fill: none;
+    stroke: #f1f3f5;
+    stroke-width: 8;
+}
+
+.timer-circle-progress {
+    fill: none;
+    stroke: var(--theme-color);
+    stroke-width: 8;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.1s linear, stroke 0.5s ease;
+}
+
+.timer-display-box {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+}
+
+.timer-time {
+    font-size: 48px;
+    font-weight: 800;
+    font-family: monospace, sans-serif;
+    color: var(--text-main);
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.timer-label {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--text-sub);
+    text-transform: uppercase;
+}
+
+/* 타이머 조작 버튼 */
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.control-btn {
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.control-btn.btn-play {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--theme-color);
+    color: var(--white);
+    font-size: 20px;
+    box-shadow: 0 6px 16px rgba(var(--theme-color-rgb), 0.3);
+}
+
+.control-btn.btn-play:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(var(--theme-color-rgb), 0.4);
+}
+
+.control-btn.btn-play:active {
+    transform: scale(0.95);
+}
+
+.control-btn.btn-sub {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #f1f3f5;
+    color: var(--text-sub);
+    font-size: 16px;
+    border: 1px solid var(--border-color);
+}
+
+.control-btn.btn-sub:hover {
+    background-color: #e9ecef;
+    color: var(--text-main);
+    transform: scale(1.05);
+}
+
+.control-btn.btn-sub:active {
+    transform: scale(0.95);
+}
+
+/* 현재 수행 중인 작업 배너 */
+.active-task-banner {
+    background-color: #f8f9fa;
+    border: 1px dashed var(--border-color);
+    border-radius: 12px;
+    padding: 12px 20px;
+    margin-bottom: 30px;
+    font-size: 14px;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.active-task-banner strong {
+    color: var(--theme-color);
+    transition: color 0.5s ease;
+}
+
+/* 통계 및 완료 내역 스타일 */
+.pomodoro-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background-color: #fdfdfd;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+}
+
+.stat-card .num {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--theme-color);
+    transition: color 0.5s ease;
+    margin-bottom: 5px;
+}
+
+.stat-card .label {
+    font-size: 12px;
+    color: var(--text-sub);
+    font-weight: bold;
+}
+
+/* 할 일(Task) 관리 섹션 */
+.pomodoro-task-section {
+    text-align: left;
+    margin-top: 20px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 30px;
+}
+
+.pomodoro-task-section h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: var(--text-main);
+}
+
+.task-input-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.task-input-row input {
+    flex: 1;
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    padding: 12px 15px;
+    outline: none;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.task-input-row input:focus {
+    border-color: var(--theme-color);
+}
+
+.task-add-btn {
+    background-color: var(--point-color);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    padding: 0 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.task-add-btn:hover {
+    background-color: #3e4f6e;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.task-item:hover {
+    border-color: #ced4da;
+    background-color: #f1f3f5;
+}
+
+.task-item.active-item {
+    border-color: rgba(var(--theme-color-rgb), 0.5);
+    background-color: rgba(var(--theme-color-rgb), 0.03);
+}
+
+.task-item-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.task-checkbox {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 2px solid #ced4da;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.task-checkbox.checked {
+    background-color: #20c997;
+    border-color: #20c997;
+    color: var(--white);
+}
+
+.task-checkbox.checked::after {
+    content: "✓";
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.task-text {
+    font-size: 14px;
+    color: var(--text-main);
+    word-break: break-all;
+}
+
+.task-item.checked-item .task-text {
+    text-decoration: line-through;
+    color: var(--text-sub);
+}
+
+.task-delete-btn {
+    background: none;
+    border: none;
+    color: #adb5bd;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px;
+    transition: color 0.2s;
+}
+
+.task-delete-btn:hover {
+    color: #fa5252;
+}
+
+.task-empty-msg {
+    color: var(--text-sub);
+    font-size: 13px;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* 커스텀 모달 스타일 */
+.custom-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+}
+
+.modal-content {
+    position: relative;
+    background-color: var(--white);
+    border-radius: 16px;
+    padding: 25px;
+    width: 90%;
+    max-width: 360px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    z-index: 1001;
+    animation: modalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalFadeIn {
+    from { transform: scale(0.9) translateY(10px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.modal-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.modal-content h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+.modal-content p {
+    font-size: 14px;
+    color: var(--text-sub);
+    margin-bottom: 22px;
+    line-height: 1.5;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.modal-btn {
+    border: none;
+    padding: 11px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    flex: 1;
+    transition: background-color 0.2s, transform 0.1s;
+    outline: none;
+}
+
+.modal-btn:active {
+    transform: scale(0.97);
+}
+
+.modal-btn.btn-cancel {
+    background-color: #f1f3f5;
+    color: var(--text-sub);
+}
+
+.modal-btn.btn-cancel:hover {
+    background-color: #e9ecef;
+}
+
+.modal-btn.btn-ok {
+    background-color: var(--theme-color);
+    color: var(--white);
+}
+
+.modal-btn.btn-ok:hover {
+    filter: brightness(0.9);
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뽀모도로 & 집중 타이머 - 소소집</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png">
+</head>
+<body class="pomodoro-page">
+
+    <header>
+        <a href="index.html" class="logo" style="text-decoration: none;">SOSOZIB</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1418602449823851"
+        crossorigin="anonymous"></script>
+        <meta name="google-adsense-account" content="ca-pub-1418602449823851">
+    </header>
+
+    <section class="tool-detail-section">
+        <div class="tool-container pomodoro-container pomodoro-card" id="pomodoro-card">
+            <h2>뽀모도로 & 집중 타이머 🍅</h2>
+            <p>25분 집중과 5분 휴식의 주기를 통해 업무 효율을 높이고 통계를 확인해 보세요.</p>
+            
+            <!-- 모드 선택 탭 -->
+            <div class="pomodoro-modes">
+                <button class="mode-tab active" data-mode="work" id="tab-work">집중 (25m)</button>
+                <button class="mode-tab" data-mode="short" id="tab-short">짧은 휴식 (5m)</button>
+                <button class="mode-tab" data-mode="long" id="tab-long">긴 휴식 (15m)</button>
+            </div>
+
+            <!-- 대형 원형 타이머 시각화 -->
+            <div class="timer-visual-wrapper">
+                <svg class="timer-svg" viewBox="0 0 250 250">
+                    <circle class="timer-circle-bg" cx="125" cy="125" r="110"></circle>
+                    <circle class="timer-circle-progress" id="timer-progress" cx="125" cy="125" r="110" stroke-dasharray="691.15" stroke-dashoffset="0"></circle>
+                </svg>
+                <div class="timer-display-box">
+                    <div class="timer-time" id="timer-time">25:00</div>
+                    <div class="timer-label" id="timer-label">집중 시간</div>
+                </div>
+            </div>
+
+            <!-- 현재 집중 중인 작업 배너 -->
+            <div class="active-task-banner" id="active-task-banner" style="display: none;">
+                🎯 현재 집중 중인 작업: <strong id="active-task-name">할 일을 선택해 주세요</strong>
+            </div>
+
+            <!-- 조작 버튼 -->
+            <div class="timer-controls">
+                <button class="control-btn btn-sub" id="btn-reset" title="타이머 초기화">🔄</button>
+                <button class="control-btn btn-play" id="btn-play" title="시작">▶</button>
+                <button class="control-btn btn-sub" id="btn-skip" title="다음 단계로 넘어가기">⏭</button>
+            </div>
+
+            <!-- 오늘의 누적 집중 통계 -->
+            <div class="pomodoro-stats-grid">
+                <div class="stat-card">
+                    <div class="num" id="stat-work-count">0</div>
+                    <div class="label">집중 횟수</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num" id="stat-work-time">0분</div>
+                    <div class="label">총 집중시간</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num" id="stat-break-count">0</div>
+                    <div class="label">휴식 완료</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button class="sub-btn" id="btn-reset-stats" style="font-size: 12px; padding: 6px 12px;">통계 초기화 🗑️</button>
+            </div>
+
+            <!-- 할 일(Task) 관리 영역 -->
+            <div class="pomodoro-task-section">
+                <h3>집중할 작업 관리 📋</h3>
+                <div class="task-input-row">
+                    <input type="text" id="task-input" placeholder="어떤 작업에 몰입해볼까요?" maxlength="50">
+                    <button class="task-add-btn" id="btn-add-task">추가</button>
+                </div>
+                <div class="task-list" id="task-list">
+                    <!-- JS에서 할 일 항목들이 렌더링됩니다 -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO용 소개 섹션 -->
+    <section class="seo-text-section">
+        <article class="seo-article">
+            <h3>뽀모도로 기법이란 무엇인가요?</h3>
+            <p><strong>뽀모도로 기법(Pomodoro Technique)</strong>은 1980년대 후반 프란체스코 시릴로가 제안한 시간 관리 방법론입니다. 타이머를 이용해 25분간 집중해서 일을 한 다음 5분간 휴식하는 주기를 반복하며, 이 주기를 '뽀모도로(이탈리아어로 토마토)'라고 부릅니다.</p>
+            
+            <h4>1. 어떻게 실천하나요?</h4>
+            <ul>
+                <li><strong>집중 단계 (25분):</strong> 오직 한 가지 작업에만 고도로 집중합니다. 이메일 확인이나 스마트폰 보기 등 어떠한 방해 요소도 허용하지 않습니다.</li>
+                <li><strong>짧은 휴식 (5분):</strong> 집중 세션이 끝나면 짧은 휴식을 취합니다. 뇌가 완전히 쉴 수 있도록 가볍게 스트레칭을 하거나 물을 마시는 것이 좋습니다.</li>
+                <li><strong>긴 휴식 (15분):</strong> 집중 단계와 짧은 휴식을 4번(4 뽀모도로) 완료하면, 15분에서 30분 정도의 더 긴 휴식을 취해 뇌의 피로를 완전히 풀어줍니다.</li>
+            </ul>
+
+            <h4>2. 소소집 뽀모도로 타이머의 핵심 특징</h4>
+            <p><strong>브라우저 탭 연동:</strong> 다른 작업을 하고 있어도 브라우저 상단 탭에 남은 시간이 표시되므로 백그라운드에서도 손쉽게 남은 시간을 확인할 수 있습니다.</p>
+            <p><strong>효과적인 작업(To-Do) 매칭:</strong> 내가 추가한 할 일 목록 중 하나를 마우스로 클릭하여 '현재 집중 중인 작업'으로 지정할 수 있어 딴짓 방지에 매우 효과적입니다.</p>
+            <p><strong>편리한 브라우저 알림 & 맑은 알림음:</strong> 집중이나 휴식이 끝나면 맑고 투명한 음향 알림이 울립니다. 또한, 데스크톱 알림 허용 시 알림 팝업을 통해 집중 시간이 종료되었음을 즉시 인지시켜 줍니다.</p>
+        </article>
+    </section>
+
+    <footer>
+        <div class="footer-logo">SOSOZIB</div>
+        <div class="footer-copy">
+            <a href="privacy-policy.html" style="color: #666; text-decoration: underline;">개인정보처리방침</a> | 
+            © 2026 SOSOZIB
+        </div>
+    </footer>
+
+    <!-- 커스텀 알림/확인 모달 -->
+    <div class="custom-modal" id="confirm-modal" style="display: none;">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-icon">⚠️</div>
+            <h4 id="confirm-title">알림</h4>
+            <p id="confirm-message">진행하시겠습니까?</p>
+            <div class="modal-buttons">
+                <button class="modal-btn btn-cancel" id="btn-confirm-cancel">취소</button>
+                <button class="modal-btn btn-ok" id="btn-confirm-ok">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="pomodoro.js"></script>
+</body>
+</html>
