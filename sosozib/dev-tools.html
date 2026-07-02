@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개발자 도구 (Base64 & JSON) - 소소집</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo" style="text-decoration: none;">SOSOZIB</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1418602449823851"
+        crossorigin="anonymous"></script>
+        <meta name="google-adsense-account" content="ca-pub-1418602449823851">
+    </header>
+
+    <section class="tool-detail-section">
+        <div class="tool-container dev-tools-container">
+            <h2>개발자 도구 🛠️</h2>
+            <p>Base64 변환과 JSON 포맷팅/압축 작업을 웹 브라우저에서 안전하고 빠르게 처리하세요.</p>
+            
+            <!-- 탭 전환 버튼 -->
+            <div class="dev-tabs">
+                <button id="tab-base64" class="tab-btn active">Base64 변환기</button>
+                <button id="tab-json" class="tab-btn">JSON 포맷터</button>
+            </div>
+
+            <!-- Base64 탭 콘텐츠 -->
+            <div id="content-base64" class="tab-content active">
+                <div class="textarea-group">
+                    <label for="base64-input">입력 텍스트 (텍스트 또는 Base64 문자열)</label>
+                    <textarea id="base64-input" placeholder="여기에 변환할 원본 문자열이나 Base64 인코딩된 코드를 입력해 주세요..."></textarea>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="btn-b64-encode" class="primary-btn">Base64 인코딩 (Encode) 🔒</button>
+                    <button id="btn-b64-decode" class="secondary-btn">Base64 디코딩 (Decode) 🔓</button>
+                    <button id="btn-b64-clear" class="sub-btn">비우기 🔄</button>
+                </div>
+
+                <div class="textarea-group">
+                    <label for="base64-output">변환 결과</label>
+                    <textarea id="base64-output" readonly placeholder="변환된 결과가 여기에 표시됩니다..."></textarea>
+                </div>
+
+                <div class="output-actions">
+                    <button id="btn-b64-copy" class="download-btn">결과 복사하기 📋</button>
+                </div>
+            </div>
+
+            <!-- JSON 탭 콘텐츠 -->
+            <div id="content-json" class="tab-content">
+                <div class="textarea-group">
+                    <label for="json-input">입력 JSON 문자열</label>
+                    <textarea id="json-input" placeholder='여기에 포맷팅할 JSON 문자열을 입력해 주세요... (예: {"name":"sosozib","active":true})'></textarea>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="btn-json-beautify2" class="primary-btn">JSON 정렬 (2칸 들여쓰기)</button>
+                    <button id="btn-json-beautify4" class="secondary-btn">JSON 정렬 (4칸 들여쓰기)</button>
+                    <button id="btn-json-minify" class="accent-btn">한 줄로 압축 (Minify)</button>
+                    <button id="btn-json-clear" class="sub-btn">비우기 🔄</button>
+                </div>
+
+                <div id="json-error" class="error-box" style="display: none;">
+                    <strong>⚠️ JSON 파싱 오류:</strong> <span id="json-error-msg">올바르지 않은 구문입니다.</span>
+                </div>
+
+                <div class="textarea-group">
+                    <label for="json-output">변환 결과</label>
+                    <textarea id="json-output" readonly placeholder="정렬 또는 압축된 JSON이 여기에 표시됩니다..."></textarea>
+                </div>
+
+                <div class="output-actions">
+                    <button id="btn-json-copy" class="download-btn">결과 복사하기 📋</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seo-text-section">
+        <article class="seo-article">
+            <h3>개발자 도구 (Base64 & JSON) 100% 활용하는 방법</h3>
+            <p>개발 작업이나 블로그 작성 중 데이터 포맷을 가공해야 하는 일이 빈번히 발생하곤 합니다. 소소집의 통합 개발자 도구를 이용하면 복잡한 설정 없이 브라우저 내에서 안전하게 데이터를 변환하고 정렬할 수 있습니다.</p>
+            
+            <h4>1. 유니코드(한글)가 깨지지 않는 Base64 인코더/디코더</h4>
+            <p>일반적인 브라우저 변환기나 기본 함수(`btoa`, `atob`)를 사용하면 한글과 같은 유니코드 문자가 깨지는 현상이 발생합니다. 소소집의 Base64 변환기는 UTF-8 유니코드 인코딩 처리를 거쳐 한글, 이모지, 특수문자가 들어간 데이터도 깨짐 없이 완벽하게 인코딩 및 디코딩해 드립니다.</p>
+            
+            <h4>2. 깨진 JSON 구조 분석 및 에러 위치 찾기</h4>
+            <p>서버 API 등에서 복사해 온 복잡한 JSON 코드가 올바르지 않은 구문일 경우, 변환 결과창 상단에 <strong>구체적인 에러 메시지(Error Message)</strong>가 뜹니다. 괄호가 누락되었거나 콤마(,) 위치가 잘못된 부분을 손쉽게 찾아내어 빠른 디버깅이 가능합니다.</p>
+
+            <h4>3. 들여쓰기 크기 선택(2 Space vs 4 Space) 및 초경량 압축(Minify)</h4>
+            <p>가독성을 위해 2칸 혹은 4칸 들여쓰기 중 선호하는 스타일을 선택하여 보기 좋게 정렬할 수 있습니다. 또한, 웹사이트 업로드나 전송 시 불필요한 줄바꿈과 공백을 걷어내어 파일 크기를 줄일 수 있는 '한 줄로 압축' 기능을 함께 제공하여 데이터 트래픽 절감을 돕습니다.</p>
+
+            <h4>4. 외부 유출 걱정 없는 로컬 기반 보안 변환</h4>
+            <p>입력한 모든 데이터는 서버로 전송되지 않고 오직 사용자의 브라우저 내에서만 안전하게 실시간 처리됩니다. API 키나 설정 파일과 같이 민감한 개발 보안 데이터도 외부 정보 유출의 염려 없이 안심하고 포맷팅할 수 있습니다.</p>
+        </article>
+    </section>
+
+    <footer>
+        <div class="footer-logo">SOSOZIB</div>
+        <div class="footer-copy">© 2026 SOSOZIB</div>
+    </footer>
+
+    <script src="dev-tools.js"></script>
+</body>
+</html>

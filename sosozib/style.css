@@ -164,6 +164,9 @@ header nav ul {
     padding: 24px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     /* 마우스 올렸을 때 부드러운 효과 준비 */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 /* 카드에 마우스 올렸을 때 (Hover) 효과 */
@@ -183,6 +186,7 @@ header nav ul {
     font-size: 12px;
     font-weight: bold;
     margin-bottom: 15px;
+    align-self: flex-start; /* 아이콘 크기만큼만 가로폭 차지 */
 }
 
 .tool-card h3 {
@@ -194,6 +198,7 @@ header nav ul {
     font-size: 14px;
     color: var(--text-sub);
     margin-bottom: 20px;
+    flex: 1; /* 남은 여백을 채워 태그를 맨 아래로 밀어냄 */
 }
 
 .tool-card .tag {
@@ -1660,5 +1665,184 @@ input[type="range"] {
 @media (max-width: 400px) {
     .number-grid {
         grid-template-columns: repeat(5, 1fr); /* 아주 좁은 화면에서는 5열로 배치 */
+    }
+}
+
+/* --- 11. 개발자 도구 (Base64 & JSON) 전용 스타일 --- */
+
+.dev-tools-container {
+    max-width: 750px !important;
+}
+
+/* 탭 바 */
+.dev-tabs {
+    display: flex;
+    border-bottom: 2px solid #e9ecef;
+    margin-bottom: 25px;
+    gap: 15px;
+}
+
+.dev-tabs .tab-btn {
+    background: none;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text-sub);
+    cursor: pointer;
+    position: relative;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px; /* 탭 밑줄 정렬 맞추기 */
+    transition: all 0.25s ease;
+}
+
+.dev-tabs .tab-btn:hover {
+    color: var(--point-color);
+}
+
+.dev-tabs .tab-btn.active {
+    color: var(--point-color);
+    border-bottom-color: var(--point-color);
+}
+
+/* 탭 콘텐츠 */
+.tab-content {
+    display: none;
+    text-align: left;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* 텍스트 영역 그룹 */
+.textarea-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.textarea-group label {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    color: #495057;
+    margin-bottom: 8px;
+}
+
+.textarea-group textarea {
+    width: 100%;
+    height: 160px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    outline: none;
+    resize: vertical;
+    font-family: 'Consolas', 'Courier New', Courier, monospace;
+    background-color: #fafbfc;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.textarea-group textarea:focus {
+    border-color: var(--point-color);
+    box-shadow: 0 0 6px rgba(43, 58, 85, 0.08);
+    background-color: #ffffff;
+}
+
+.textarea-group textarea[readonly] {
+    background-color: #f1f3f5;
+    cursor: not-allowed;
+}
+
+/* 에러 안내 박스 */
+.error-box {
+    background-color: #fff5f5;
+    border: 1px solid #ffe3e3;
+    border-radius: 8px;
+    color: #c92a2a;
+    padding: 12px 15px;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    word-break: break-all;
+}
+
+/* 컨트롤 액션 버튼 그룹 */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.action-buttons button {
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.primary-btn {
+    background-color: var(--point-color);
+    color: var(--white);
+}
+
+.primary-btn:hover {
+    background-color: #1c273a;
+    transform: translateY(-1px);
+}
+
+.secondary-btn {
+    background-color: #4dabf7;
+    color: var(--white);
+}
+
+.secondary-btn:hover {
+    background-color: #339af0;
+    transform: translateY(-1px);
+}
+
+.accent-btn {
+    background-color: #9b59b6;
+    color: var(--white);
+}
+
+.accent-btn:hover {
+    background-color: #8e44ad;
+    transform: translateY(-1px);
+}
+
+/* 결과 출력용 버튼 가로 정렬 */
+.output-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+/* 모바일 가독성 맞춤 */
+@media (max-width: 600px) {
+    .dev-tabs {
+        justify-content: space-around;
+        gap: 0;
+    }
+    
+    .dev-tabs .tab-btn {
+        font-size: 14px;
+        padding: 10px;
+        flex: 1;
+        text-align: center;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .action-buttons button {
+        width: 100%;
     }
 }
