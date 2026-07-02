@@ -1,11 +1,16 @@
 /* 1. CSS 변수 설정 (유지보수를 위한 핵심!) */
 /* 나중에 사이트 메인 색상을 바꾸고 싶다면 여기 있는 색상 코드만 바꾸면 전체가 한 번에 변경됩니다. */
 :root {
-    --bg-color: #f4f6fa;       /* 전체 배경색 (아주 연한 푸른빛 회색) */
-    --point-color: #2b3a55;    /* 포인트 컬러 (버튼 등에 쓰이는 네이비) */
-    --text-main: #222222;      /* 기본 진한 글자색 */
-    --text-sub: #777777;       /* 설명에 쓰이는 연한 글자색 */
-    --border-color: #e9ecef;   /* 테두리 색상 */
+    --bg-color: #f4f6fa;
+    /* 전체 배경색 (아주 연한 푸른빛 회색) */
+    --point-color: #2b3a55;
+    /* 포인트 컬러 (버튼 등에 쓰이는 네이비) */
+    --text-main: #222222;
+    /* 기본 진한 글자색 */
+    --text-sub: #777777;
+    /* 설명에 쓰이는 연한 글자색 */
+    --border-color: #e9ecef;
+    /* 테두리 색상 */
     --white: #ffffff;
 }
 
@@ -13,8 +18,10 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* 테두리 두께가 크기에 영향을 주지 않도록 설정 */
-    font-family: 'Pretendard', -apple-system, sans-serif; /* 깔끔한 기본 폰트 적용 */
+    box-sizing: border-box;
+    /* 테두리 두께가 크기에 영향을 주지 않도록 설정 */
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    /* 깔끔한 기본 폰트 적용 */
 }
 
 body {
@@ -25,17 +32,24 @@ body {
 
 /* 3. 전체 레이아웃 잡기 */
 /* 헤더, 배너, 툴 목록이 화면 가운데에 적당한 너비로 오도록 맞춥니다. */
-header, .hero-section, .tools-section, footer {
+header,
+.hero-section,
+.tools-section,
+footer {
     max-width: 1200px;
-    margin: 0 auto; /* 좌우 여백을 자동으로 맞춰서 가운데 정렬 */
+    margin: 0 auto;
+    /* 좌우 여백을 자동으로 맞춰서 가운데 정렬 */
     padding: 20px;
 }
 
 /* 4. 헤더 영역 (Flexbox 사용) */
 header {
-    display: flex; /* 요소들을 가로로 나열 */
-    justify-content: space-between; /* 양 끝으로 밀어내기 */
-    align-items: center; /* 세로 기준 가운데 정렬 */
+    display: flex;
+    /* 요소들을 가로로 나열 */
+    justify-content: space-between;
+    /* 양 끝으로 밀어내기 */
+    align-items: center;
+    /* 세로 기준 가운데 정렬 */
     padding-top: 30px;
     padding-bottom: 30px;
 }
@@ -48,8 +62,10 @@ header .logo {
 
 header nav ul {
     display: flex;
-    list-style: none; /* 기본 점 없애기 */
-    gap: 30px; /* 메뉴 사이 간격 */
+    list-style: none;
+    /* 기본 점 없애기 */
+    gap: 30px;
+    /* 메뉴 사이 간격 */
     color: var(--text-sub);
     font-size: 15px;
 }
@@ -79,27 +95,37 @@ header nav ul {
     max-width: 600px;
     margin: 0 auto;
     background: var(--white);
-    border-radius: 40px; /* 알약 모양처럼 완전 둥글게 */
+    border-radius: 40px;
+    /* 알약 모양처럼 완전 둥글게 */
     padding: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.03); /* 아주 연한 그림자 */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    /* 아주 연한 그림자 */
 }
 
 .search-box input {
-    flex: 1; /* 검색창이 남은 공간을 다 차지하도록 */
+    flex: 1;
+    /* 검색창이 남은 공간을 다 차지하도록 */
     border: none;
     padding: 15px 25px;
     border-radius: 40px;
-    outline: none; /* 클릭 시 생기는 기본 테두리 없애기 */
+    outline: none;
+    /* 클릭 시 생기는 기본 테두리 없애기 */
     font-size: 16px;
     background: transparent;
-    
+
     /* 🚨 추가된 인앱 브라우저 철벽 방어 코드 🚨 */
-    box-sizing: border-box;   /* 패딩을 넣어도 박스가 커지지 않게 꽉 잡아줌 (가장 중요!) */
-    min-width: 0;             /* flex 속성 사용 시 글자가 길어져도 영역을 뚫지 않게 제한 */
-    line-height: normal;      /* 브라우저가 강제로 줄 간격을 늘리는 것 방지 */
-    margin: 0;                /* 불필요한 기본 바깥 여백 초기화 */
-    -webkit-appearance: none; /* 아이폰(Safari)의 기본 입력창 디자인 강제 초기화 */
-    appearance: none;         /* 공식 표준 초기화 */
+    box-sizing: border-box;
+    /* 패딩을 넣어도 박스가 커지지 않게 꽉 잡아줌 (가장 중요!) */
+    min-width: 0;
+    /* flex 속성 사용 시 글자가 길어져도 영역을 뚫지 않게 제한 */
+    line-height: normal;
+    /* 브라우저가 강제로 줄 간격을 늘리는 것 방지 */
+    margin: 0;
+    /* 불필요한 기본 바깥 여백 초기화 */
+    -webkit-appearance: none;
+    /* 아이폰(Safari)의 기본 입력창 디자인 강제 초기화 */
+    appearance: none;
+    /* 공식 표준 초기화 */
 }
 
 .search-box button {
@@ -121,24 +147,31 @@ header nav ul {
 }
 
 .card-grid {
-    display: grid; /* 바둑판처럼 배치하는 Grid 모드 켜기 */
-    grid-template-columns: repeat(4, 1fr); /* 1비율(1fr)로 4칸 똑같이 나누기 */
-    gap: 20px; /* 카드 사이의 간격 */
+    display: grid;
+    /* 바둑판처럼 배치하는 Grid 모드 켜기 */
+    grid-template-columns: repeat(4, 1fr);
+    /* 1비율(1fr)로 4칸 똑같이 나누기 */
+    gap: 20px;
+    /* 카드 사이의 간격 */
 }
 
 /* 개별 카드 디자인 */
 .tool-card {
     background: var(--white);
     border: 1px solid var(--border-color);
-    border-radius: 16px; /* 모서리 둥글게 */
+    border-radius: 16px;
+    /* 모서리 둥글게 */
     padding: 24px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* 마우스 올렸을 때 부드러운 효과 준비 */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* 마우스 올렸을 때 부드러운 효과 준비 */
 }
 
 /* 카드에 마우스 올렸을 때 (Hover) 효과 */
 .tool-card:hover {
-    transform: translateY(-5px); /* 위로 5px 붕 띄우기 */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* 그림자 진하게 */
+    transform: translateY(-5px);
+    /* 위로 5px 붕 띄우기 */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    /* 그림자 진하게 */
 }
 
 .tool-card .icon {
@@ -181,6 +214,7 @@ footer {
     color: var(--text-sub);
     font-size: 14px;
 }
+
 /* --- 개별 툴 화면 (QR 생성기 등) 디자인 --- */
 .tool-detail-section {
     padding: 60px 20px;
@@ -193,7 +227,7 @@ footer {
     background: var(--white);
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .tool-container h2 {
@@ -226,7 +260,7 @@ footer {
 
 /* 🚀 수정 후: 위아래 여백을 15px로 넉넉하게 늘려줍니다 */
 .input-group button {
-    padding: 15px 25px; 
+    padding: 15px 25px;
     background-color: var(--point-color);
     color: var(--white);
     border: none;
@@ -241,7 +275,8 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 250px; /* QR코드가 없어도 영역을 확보해둠 */
+    min-height: 250px;
+    /* QR코드가 없어도 영역을 확보해둠 */
     background-color: var(--bg-color);
     border-radius: 15px;
     padding: 20px;
@@ -249,39 +284,49 @@ footer {
 
 /* 상단 메뉴바 링크 디자인 설정 */
 header nav ul li a {
-    text-decoration: none; /* 보기 싫은 기본 파란 밑줄 없애기 */
-    color: inherit; /* 원래 우리가 지정했던 부드러운 회색(text-sub) 유지하기 */
-    transition: color 0.2s ease; /* 마우스 올렸을 때 부드럽게 색이 변하도록 준비 */
+    text-decoration: none;
+    /* 보기 싫은 기본 파란 밑줄 없애기 */
+    color: inherit;
+    /* 원래 우리가 지정했던 부드러운 회색(text-sub) 유지하기 */
+    transition: color 0.2s ease;
+    /* 마우스 올렸을 때 부드럽게 색이 변하도록 준비 */
 }
 
 /* 메뉴에 마우스를 올렸을 때 (Hover) */
 header nav ul li a:hover {
-    color: var(--point-color); /* 진한 네이비색으로 포인트 주기 */
-    font-weight: bold; /* 글씨 굵게 만들기 */
+    color: var(--point-color);
+    /* 진한 네이비색으로 포인트 주기 */
+    font-weight: bold;
+    /* 글씨 굵게 만들기 */
 }
 
 /* --- 글자 수 세기 전용 디자인 --- */
 #text-input {
-    width: 100%; /* 가로 공간을 꽉 채움 */
+    width: 100%;
+    /* 가로 공간을 꽉 채움 */
     padding: 20px;
     border: 1px solid var(--border-color);
     border-radius: 15px;
     font-size: 16px;
     outline: none;
-    resize: vertical; /* 사용자가 세로로만 크기를 늘릴 수 있게 허용 */
+    resize: vertical;
+    /* 사용자가 세로로만 크기를 늘릴 수 있게 허용 */
     margin-bottom: 30px;
-    font-family: inherit; /* 사이트 기본 폰트를 그대로 따라가도록 설정 */
+    font-family: inherit;
+    /* 사이트 기본 폰트를 그대로 따라가도록 설정 */
     background-color: #fcfcfc;
 }
 
 #text-input:focus {
-    border-color: var(--point-color); /* 클릭(포커스)했을 때 테두리 색상 진하게 */
+    border-color: var(--point-color);
+    /* 클릭(포커스)했을 때 테두리 색상 진하게 */
 }
 
 .result-box {
     display: flex;
     justify-content: center;
-    gap: 20px; /* 결과 박스 사이의 간격 */
+    gap: 20px;
+    /* 결과 박스 사이의 간격 */
 }
 
 .result-item {
@@ -289,7 +334,8 @@ header nav ul li a:hover {
     padding: 20px 40px;
     border-radius: 15px;
     display: flex;
-    flex-direction: column; /* 세로로 글자 배치 */
+    flex-direction: column;
+    /* 세로로 글자 배치 */
     align-items: center;
     min-width: 150px;
 }
@@ -305,6 +351,7 @@ header nav ul li a:hover {
     color: var(--point-color);
     font-weight: 900;
 }
+
 /* --- 비밀번호 생성기 전용 디자인 --- */
 .password-display {
     display: flex;
@@ -318,9 +365,11 @@ header nav ul li a:hover {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
-    letter-spacing: 3px; /* 글자 사이 간격을 넓혀서 비밀번호가 잘 보이게 */
+    letter-spacing: 3px;
+    /* 글자 사이 간격을 넓혀서 비밀번호가 잘 보이게 */
     background-color: #f8f9fa;
-    border: 2px dashed var(--border-color); /* 점선 테두리로 포인트 주기 */
+    border: 2px dashed var(--border-color);
+    /* 점선 테두리로 포인트 주기 */
     border-radius: 10px;
     outline: none;
     color: var(--point-color);
@@ -328,7 +377,8 @@ header nav ul li a:hover {
 
 .password-display button {
     padding: 0 20px;
-    background-color: #4dabf7; /* 하늘색 계열 포인트 컬러 */
+    background-color: #4dabf7;
+    /* 하늘색 계열 포인트 컬러 */
     color: var(--white);
     border: none;
     border-radius: 10px;
@@ -338,7 +388,8 @@ header nav ul li a:hover {
 }
 
 .generate-btn {
-    width: 100%; /* 버튼이 가로 공간을 꽉 채우도록 */
+    width: 100%;
+    /* 버튼이 가로 공간을 꽉 채우도록 */
     padding: 18px;
     background-color: var(--point-color);
     color: var(--white);
@@ -351,7 +402,8 @@ header nav ul li a:hover {
 }
 
 .generate-btn:hover {
-    background-color: #1a2538; /* 마우스 올렸을 때 더 진한 색으로 변함 */
+    background-color: #1a2538;
+    /* 마우스 올렸을 때 더 진한 색으로 변함 */
 }
 
 /* --- 컬러 팔레트 전용 디자인 --- */
@@ -359,29 +411,32 @@ header nav ul li a:hover {
     display: flex;
     height: 300px;
     border-radius: 15px;
-    overflow: hidden; /* 모서리 둥글게 자르기 */
+    overflow: hidden;
+    /* 모서리 둥글게 자르기 */
     margin-bottom: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* 예쁜 그림자 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* 예쁜 그림자 */
 }
 
 /* 개별 색상 기둥 디자인 */
 .color-box {
-    flex: 1; 
+    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; 
-    align-items: center; 
+    justify-content: flex-end;
+    align-items: center;
     padding-bottom: 20px;
     /* gap: 15px; <- 이 줄은 이제 필요 없으니 지워주세요! */
     cursor: pointer;
-    transition: flex 0.3s ease; 
-    
-    position: relative; /* 💡 핵심 1: 자물쇠가 도망가지 못하게 울타리(기준점)를 쳐줍니다. */
+    transition: flex 0.3s ease;
+
+    position: relative;
+    /* 💡 핵심 1: 자물쇠가 도망가지 못하게 울타리(기준점)를 쳐줍니다. */
 }
 
 /* 마우스를 올리면 기둥이 살짝 넓어집니다 */
 .color-box:hover {
-    flex: 1.3; 
+    flex: 1.3;
 }
 
 /* 색상 코드(HEX) 글자표 디자인 */
@@ -392,50 +447,65 @@ header nav ul li a:hover {
     font-weight: bold;
     font-size: 14px;
     color: #333;
-    text-transform: uppercase; /* 영어를 무조건 대문자로 */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-transform: uppercase;
+    /* 영어를 무조건 대문자로 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
 .lock-btn {
-    background: rgba(255, 255, 255, 0.5); 
+    background: rgba(255, 255, 255, 0.5);
     border: none;
     font-size: 20px;
     cursor: pointer;
     padding: 8px;
-    border-radius: 50%; 
-    transition: background 0.2s ease, transform 0.2s ease; 
-    
+    border-radius: 50%;
+    transition: background 0.2s ease, transform 0.2s ease;
+
     /* 💡 핵심 2: 공중에 띄워서 위치를 내 마음대로 지정합니다. */
-    position: absolute; 
-    top: 20px; /* 기둥 맨 위에서 20px만큼 띄워서 고정! */
+    position: absolute;
+    top: 20px;
+    /* 기둥 맨 위에서 20px만큼 띄워서 고정! */
 }
 
 .lock-btn:hover {
     background: rgba(255, 255, 255, 0.9);
-    transform: scale(1.1); 
+    transform: scale(1.1);
 }
 
 /* --- 토스트 알림창 디자인 --- */
 .toast {
-    position: fixed; /* 화면 스크롤과 상관없이 화면의 특정 위치에 고정! */
-    bottom: -100px; /* 처음엔 화면 아래로 완전히 숨겨둡니다 */
-    left: 50%; /* 가로 기준 가운데로 오게 하기 */
-    transform: translateX(-50%); /* 정확한 가운데 정렬을 위한 마법 공식 */
-    background-color: #2b3a55; /* 진한 네이비 배경 */
+    position: fixed;
+    /* 화면 스크롤과 상관없이 화면의 특정 위치에 고정! */
+    bottom: -100px;
+    /* 처음엔 화면 아래로 완전히 숨겨둡니다 */
+    left: 50%;
+    /* 가로 기준 가운데로 오게 하기 */
+    transform: translateX(-50%);
+    /* 정확한 가운데 정렬을 위한 마법 공식 */
+    background-color: #2b3a55;
+    /* 진한 네이비 배경 */
     color: white;
     padding: 15px 30px;
-    border-radius: 30px; /* 알약 모양으로 둥글게 */
+    border-radius: 30px;
+    /* 알약 모양으로 둥글게 */
     font-size: 16px;
     font-weight: bold;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* 은은한 그림자 */
-    transition: bottom 0.4s ease, opacity 0.4s ease; /* 스르륵 움직이는 애니메이션 준비 */
-    opacity: 0; /* 처음엔 투명하게 안 보이게 */
-    z-index: 1000; /* 항상 다른 요소들보다 맨 위에 떠 있도록 설정 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* 은은한 그림자 */
+    transition: bottom 0.4s ease, opacity 0.4s ease;
+    /* 스르륵 움직이는 애니메이션 준비 */
+    opacity: 0;
+    /* 처음엔 투명하게 안 보이게 */
+    z-index: 1000;
+    /* 항상 다른 요소들보다 맨 위에 떠 있도록 설정 */
 }
 
 /* 🚀 자바스크립트가 'show'라는 이름표를 붙여주면 적용될 디자인 */
 .toast.show {
-    bottom: 40px; /* 화면 아래에서 40px 위로 올라옵니다! */
-    opacity: 1; /* 글자가 선명하게 보입니다 */
+    bottom: 40px;
+    /* 화면 아래에서 40px 위로 올라옵니다! */
+    opacity: 1;
+    /* 글자가 선명하게 보입니다 */
 }
 
 /* --- 디데이 계산기 UI 디자인 --- */
@@ -443,7 +513,7 @@ header nav ul li a:hover {
     background: #fff;
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .input-group {
@@ -455,7 +525,7 @@ header nav ul li a:hover {
     border-bottom: 2px solid #f0f0f0;
 }
 
-.input-group input[type="text"], 
+.input-group input[type="text"],
 .input-group input[type="date"] {
     padding: 12px;
     border: 1px solid #ddd;
@@ -472,23 +542,25 @@ header nav ul li a:hover {
 }
 
 /* 디데이 리스트 카드 스타일 */
-.dday-list { 
+.dday-list {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.dday-item { 
-    background: #f8f9fa; 
-    padding: 20px; 
-    border-radius: 15px; 
-    display: flex; 
-    justify-content: space-between; 
+.dday-item {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     transition: transform 0.2s;
 }
 
-.dday-item:hover { transform: translateY(-2px); }
+.dday-item:hover {
+    transform: translateY(-2px);
+}
 
 .dday-item strong {
     font-size: 1.1em;
@@ -510,6 +582,7 @@ header nav ul li a:hover {
 
 /* 1. 화면 가로 너비가 768px 이하일 때 (태블릿 & 큰 스마트폰) */
 @media (max-width: 768px) {
+
     /* 4칸이었던 메인 화면 카드를 2칸으로 변경 */
     .card-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -521,18 +594,21 @@ header nav ul li a:hover {
     }
 
     /* QR 생성기, 디데이 계산기 등 입력창과 버튼이 좁아지면 세로로 배치 */
-    .input-group, .dday-setup {
+    .input-group,
+    .dday-setup {
         flex-direction: column;
     }
-    
+
     /* 버튼이 화면 가로를 꽉 채우도록 변경 */
-    .input-group button, .dday-setup button {
+    .input-group button,
+    .dday-setup button {
         width: 100%;
     }
 }
 
 /* 2. 화면 가로 너비가 480px 이하일 때 (일반 스마트폰) */
 @media (max-width: 480px) {
+
     /* 2칸이었던 메인 화면 카드를 1칸으로 변경 (화면 꽉 차게) */
     .card-grid {
         grid-template-columns: repeat(1, 1fr);
@@ -548,52 +624,63 @@ header nav ul li a:hover {
 /* =========================================
        비밀번호 생성기 & 컬러 팔레트 모바일 수정
        ========================================= */
-       
-    /* 1. 비밀번호 생성기: 입력창과 버튼을 세로로 층층이 쌓기 */
-    .password-display {
-        flex-direction: column;
-    }
-    
-    .password-display input {
-        font-size: 16px; /* 좁은 화면에 맞춰 폰트 크기를 살짝 줄임 */
-        padding: 15px;
-    }
-    
-    .password-display button {
-        padding: 15px; /* 손가락으로 누르기 편하도록 높이 확보 */
-    }
 
-    /* 2. 컬러 팔레트: 세로 기둥 5개를 가로줄 5개로 변경 */
-    .palette-container {
-        flex-direction: column; /* 세로 방향으로 층층이 쌓음 */
-        height: 500px; /* 5줄이 들어가도록 전체 높이를 충분히 늘려줌 */
-    }
+/* 1. 비밀번호 생성기: 입력창과 버튼을 세로로 층층이 쌓기 */
+.password-display {
+    flex-direction: column;
+}
 
-    .color-box {
-        flex-direction: row; /* 기둥 안의 자물쇠와 글자를 가로로 배치 */
-        justify-content: center; /* 가운데 정렬 */
-        padding-bottom: 0; /* 기존에 있던 아래쪽 여백 제거 */
-    }
+.password-display input {
+    font-size: 16px;
+    /* 좁은 화면에 맞춰 폰트 크기를 살짝 줄임 */
+    padding: 15px;
+}
 
-    /* 모바일에서는 자물쇠를 맨 위가 아닌, 각 색상 줄의 왼쪽에 깔끔하게 고정 */
-    .lock-btn {
-        top: 50%;
-        left: 20px;
-        transform: translateY(-50%); /* 정확히 세로 기준 가운데에 오도록 마법 부리기 */
-    }
-    .color-picker {
-        bottom: auto; 
-        top: auto; 
-        left: auto; 
-        right: 20px; /* 오른쪽 끝으로 보냅니다 */
-        transform: translateY(-50%); 
-    }
+.password-display button {
+    padding: 15px;
+    /* 손가락으로 누르기 편하도록 높이 확보 */
+}
 
-    /* --- QR 생성기 다운로드 버튼 디자인 --- */
+/* 2. 컬러 팔레트: 세로 기둥 5개를 가로줄 5개로 변경 */
+.palette-container {
+    flex-direction: column;
+    /* 세로 방향으로 층층이 쌓음 */
+    height: 500px;
+    /* 5줄이 들어가도록 전체 높이를 충분히 늘려줌 */
+}
+
+.color-box {
+    flex-direction: row;
+    /* 기둥 안의 자물쇠와 글자를 가로로 배치 */
+    justify-content: center;
+    /* 가운데 정렬 */
+    padding-bottom: 0;
+    /* 기존에 있던 아래쪽 여백 제거 */
+}
+
+/* 모바일에서는 자물쇠를 맨 위가 아닌, 각 색상 줄의 왼쪽에 깔끔하게 고정 */
+.lock-btn {
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    /* 정확히 세로 기준 가운데에 오도록 마법 부리기 */
+}
+
+.color-picker {
+    bottom: auto;
+    top: auto;
+    left: auto;
+    right: 20px;
+    /* 오른쪽 끝으로 보냅니다 */
+    transform: translateY(-50%);
+}
+
+/* --- QR 생성기 다운로드 버튼 디자인 --- */
 .download-btn {
     margin-top: 20px;
     padding: 15px 30px;
-    background-color: #20c997; /* 눈에 띄는 민트색 */
+    background-color: #20c997;
+    /* 눈에 띄는 민트색 */
     color: white;
     border: none;
     border-radius: 10px;
@@ -601,18 +688,22 @@ header nav ul li a:hover {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s ease;
-    width: 100%; /* 버튼이 가로로 꽉 차게 */
-    display: none; /* 💡 핵심: 처음에는 안 보이게 숨겨둡니다! */
+    width: 100%;
+    /* 버튼이 가로로 꽉 차게 */
+    display: none;
+    /* 💡 핵심: 처음에는 안 보이게 숨겨둡니다! */
 }
 
 .download-btn:hover {
-    background-color: #12b886; /* 마우스 올렸을 때 살짝 진해짐 */
+    background-color: #12b886;
+    /* 마우스 올렸을 때 살짝 진해짐 */
 }
 
 /* --- SEO 텍스트 영역 디자인 --- */
 .seo-text-section {
     max-width: 800px;
-    margin: 40px auto 80px auto; /* 위아래 여백을 넉넉하게 */
+    margin: 40px auto 80px auto;
+    /* 위아래 여백을 넉넉하게 */
     padding: 0 20px;
 }
 
@@ -620,7 +711,8 @@ header nav ul li a:hover {
     background-color: var(--white);
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.02); /* 아주 연한 그림자로 깔끔하게 */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    /* 아주 연한 그림자로 깔끔하게 */
     color: var(--text-main);
 }
 
@@ -641,7 +733,8 @@ header nav ul li a:hover {
 
 .seo-article p {
     font-size: 16px;
-    line-height: 1.8; /* 글이 많을 때는 줄 간격을 넓혀야 읽기 편합니다 */
+    line-height: 1.8;
+    /* 글이 많을 때는 줄 간격을 넓혀야 읽기 편합니다 */
     color: var(--text-sub);
     margin-bottom: 15px;
 }
@@ -660,13 +753,15 @@ header nav ul li a:hover {
     border-radius: 10px;
     font-size: 16px;
     font-family: inherit;
-    resize: vertical; /* 사용자가 세로로만 크기를 조절할 수 있게 함 */
+    resize: vertical;
+    /* 사용자가 세로로만 크기를 조절할 수 있게 함 */
     outline: none;
 }
 
 .clear-btn {
     padding: 12px;
-    background-color: #ff6b6b; /* 눈에 띄는 붉은색 포인트 */
+    background-color: #ff6b6b;
+    /* 눈에 띄는 붉은색 포인트 */
     color: white;
     border: none;
     border-radius: 8px;
@@ -677,7 +772,8 @@ header nav ul li a:hover {
 }
 
 .clear-btn:hover {
-    background-color: #fa5252; /* 마우스 올렸을 때 살짝 진해짐 */
+    background-color: #fa5252;
+    /* 마우스 올렸을 때 살짝 진해짐 */
 }
 
 /* 결과창 두 개 나란히 배치하기 */
@@ -688,7 +784,8 @@ header nav ul li a:hover {
 }
 
 .result-box {
-    flex: 1; /* 두 상자가 정확히 1:1 비율로 가로 크기를 나눠 가짐 */
+    flex: 1;
+    /* 두 상자가 정확히 1:1 비율로 가로 크기를 나눠 가짐 */
     background-color: var(--bg-color);
     padding: 25px 10px;
     border-radius: 15px;
@@ -743,7 +840,8 @@ header nav ul li a:hover {
 input[type="range"] {
     width: 100%;
     cursor: pointer;
-    accent-color: var(--point-color); /* 슬라이더 색상을 테마에 맞춤 */
+    accent-color: var(--point-color);
+    /* 슬라이더 색상을 테마에 맞춤 */
 }
 
 /* 체크박스 정렬 */
@@ -783,19 +881,31 @@ input[type="range"] {
     transition: 0.2s;
 }
 
-.palette-controls .generate-btn { background-color: #2b3a55; }
-.palette-controls .toggle-btn { background-color: #f39c12; }
-.palette-controls .copy-all-btn { background-color: #27ae60; }
+.palette-controls .generate-btn {
+    background-color: #2b3a55;
+}
 
-.palette-controls button:hover { opacity: 0.8; }
+.palette-controls .toggle-btn {
+    background-color: #f39c12;
+}
+
+.palette-controls .copy-all-btn {
+    background-color: #27ae60;
+}
+
+.palette-controls button:hover {
+    opacity: 0.8;
+}
 
 /* 사용자가 직접 색상을 고르는 동그란 선택기 */
 /* 수정된 .color-picker 디자인 */
 .color-picker {
     position: absolute;
     bottom: 30px;
-    left: aoto; /* 🚀 추가: 가로 기준 가운데로 */
-    transform: translateX(-50%); /* 🚀 추가: 정확한 가운데 정렬 */
+    left: aoto;
+    /* 🚀 추가: 가로 기준 가운데로 */
+    transform: translateX(-50%);
+    /* 🚀 추가: 정확한 가운데 정렬 */
     width: 40px;
     height: 40px;
     border: none;
@@ -804,29 +914,42 @@ input[type="range"] {
 }
 
 /* 크롬, 사파리 등 브라우저 기본 색상 선택기 디자인 덮어쓰기 */
-.color-picker::-webkit-color-swatch-wrapper { padding: 0; }
-.color-picker::-webkit-color-swatch { 
-    border: 3px solid rgba(255,255,255,0.5); 
-    border-radius: 50%; 
+.color-picker::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.color-picker::-webkit-color-swatch {
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
 }
 
 /* 모바일에서는 버튼들을 세로로 정렬 */
 @media (max-width: 480px) {
-    .palette-controls { flex-direction: column; }
-    
+    .palette-controls {
+        flex-direction: column;
+    }
+
 }
 
-.dday-list { margin-top: 20px; }
-.dday-item { 
-    background: var(--bg-color); 
-    padding: 15px; 
-    margin-bottom: 10px; 
-    border-radius: 10px; 
-    display: flex; 
-    justify-content: space-between; 
+.dday-list {
+    margin-top: 20px;
+}
+
+.dday-item {
+    background: var(--bg-color);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
-.anniversary-box { font-size: 0.9em; color: var(--text-sub); margin-top: 10px; }
+
+.anniversary-box {
+    font-size: 0.9em;
+    color: var(--text-sub);
+    margin-top: 10px;
+}
 
 /* --- 단위 변환기 UI 디자인 --- */
 .converter-box {
@@ -887,8 +1010,10 @@ input[type="range"] {
     .convert-inputs {
         flex-direction: column;
     }
+
     .switch-icon {
-        transform: rotate(90deg); /* 아이콘을 세로로 회전 */
+        transform: rotate(90deg);
+        /* 아이콘을 세로로 회전 */
         margin-top: 0;
     }
 }
@@ -904,7 +1029,8 @@ input[type="range"] {
     transition: all 0.3s ease;
 }
 
-.upload-box:hover, .upload-box.dragover {
+.upload-box:hover,
+.upload-box.dragover {
     background-color: #f0f8ff;
     border-color: var(--point-color);
 }
@@ -926,15 +1052,19 @@ input[type="range"] {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    max-height: 500px;    /* 🚀 최대 높이를 500px로 제한 */
-    overflow-y: auto;     /* 🚀 내용이 많아지면 스크롤바가 자동으로 생김 */
-    padding-right: 10px;  /* 스크롤바 때문에 내용이 잘리지 않게 여유 공간 */
+    max-height: 500px;
+    /* 🚀 최대 높이를 500px로 제한 */
+    overflow-y: auto;
+    /* 🚀 내용이 많아지면 스크롤바가 자동으로 생김 */
+    padding-right: 10px;
+    /* 스크롤바 때문에 내용이 잘리지 않게 여유 공간 */
 }
 
 /* 스크롤바 예쁘게 꾸미기 (옵션) */
 .result-list::-webkit-scrollbar {
     width: 6px;
 }
+
 .result-list::-webkit-scrollbar-thumb {
     background-color: #ddd;
     border-radius: 3px;
@@ -947,7 +1077,7 @@ input[type="range"] {
     padding: 15px;
     border-radius: 10px;
     border: 1px solid #eee;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
     gap: 15px;
 }
 
@@ -982,17 +1112,23 @@ input[type="range"] {
 
 /* 수정된 다운로드 버튼 스타일 */
 .download-btn {
-    background-color: #9b59b6; /* 안전하게 보라색으로 직접 지정! */
-    color: #ffffff !important; /* 글자는 무조건 흰색! */
+    background-color: #9b59b6;
+    /* 안전하게 보라색으로 직접 지정! */
+    color: #ffffff !important;
+    /* 글자는 무조건 흰색! */
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 8px;
     font-size: 14px;
     font-weight: bold;
-    white-space: nowrap; /* 글자가 줄바꿈되지 않게 방어 */
-    display: inline-block; /* 버튼 모양 유지 */
-    flex-shrink: 0; /* 🚀 핵심: 화면이 좁아져도 버튼이 찌그러지지 않게 방어! */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 예쁜 그림자 추가 */
+    white-space: nowrap;
+    /* 글자가 줄바꿈되지 않게 방어 */
+    display: inline-block;
+    /* 버튼 모양 유지 */
+    flex-shrink: 0;
+    /* 🚀 핵심: 화면이 좁아져도 버튼이 찌그러지지 않게 방어! */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* 예쁜 그림자 추가 */
 }
 
 /* 파일 이름이 너무 길 때 잘라주는 안전장치 */
@@ -1002,13 +1138,15 @@ input[type="range"] {
     font-size: 1.05em;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; /* 너무 길면 '...'으로 표시 */
+    text-overflow: ellipsis;
+    /* 너무 길면 '...'으로 표시 */
     max-width: 300px;
 }
 
 /* --- 전체 다운로드(ZIP) 버튼 스타일 --- */
 .zip-btn {
-    background-color: #2ecc71; /* 눈에 띄는 초록색 */
+    background-color: #2ecc71;
+    /* 눈에 띄는 초록색 */
     color: white;
     border: none;
     padding: 12px 20px;
@@ -1016,12 +1154,13 @@ input[type="range"] {
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
 }
 
 .zip-btn:hover {
-    transform: translateY(-2px); /* 마우스 올리면 살짝 위로 뜸 */
+    transform: translateY(-2px);
+    /* 마우스 올리면 살짝 위로 뜸 */
 }
 
 /* --- 부가세 & 퍼센트 계산기 UI --- */
@@ -1030,7 +1169,7 @@ input[type="range"] {
     padding: 25px;
     border-radius: 12px;
     border: 1px solid #e0e0e0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
 }
 
 .radio-group label {
@@ -1068,23 +1207,458 @@ input[type="range"] {
 
 /* 🚀 1. 부가세 계산기 숫자가 길어질 때 박스 뚫림 방지 */
 .result-row strong {
-    word-break: break-all; /* 글자가 상자 끝에 닿으면 강제로 줄바꿈 */
+    word-break: break-all;
+    /* 글자가 상자 끝에 닿으면 강제로 줄바꿈 */
     text-align: right;
-    max-width: 65%; /* 왼쪽 텍스트(예: '합계금액')를 침범하지 않도록 여백 확보 */
-    line-height: 1.4; /* 줄바꿈 되었을 때 글자 위아래 간격 */
+    max-width: 65%;
+    /* 왼쪽 텍스트(예: '합계금액')를 침범하지 않도록 여백 확보 */
+    line-height: 1.4;
+    /* 줄바꿈 되었을 때 글자 위아래 간격 */
 }
 
 /* 🚀 2. 퍼센트 계산기 입력칸을 둥글고 예쁘게 만들기 */
-#pct-a, #pct-b {
-    border: 1px solid #ddd; /* 튀지 않는 부드러운 테두리 */
-    border-radius: 8px; /* 모서리를 둥글게! */
+#pct-a,
+#pct-b {
+    border: 1px solid #ddd;
+    /* 튀지 않는 부드러운 테두리 */
+    border-radius: 8px;
+    /* 모서리를 둥글게! */
     background-color: #fff;
-    outline: none; /* 클릭했을 때 생기는 기본 못생긴 테두리 제거 */
+    outline: none;
+    /* 클릭했을 때 생기는 기본 못생긴 테두리 제거 */
     transition: all 0.3s ease;
 }
 
 /* 🚀 3. 퍼센트 입력칸을 클릭했을 때 포인트 컬러 테두리 띄우기 (디테일!) */
-#pct-a:focus, #pct-b:focus {
+#pct-a:focus,
+#pct-b:focus {
     border-color: var(--point-color);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 9. CSS 디자인 생성기 전용 스타일 --- */
+
+/* 🚀 1. 미리보기 영역에 포토샵 같은 체크무늬 배경 넣기 */
+.preview-panel {
+    background-image:
+        linear-gradient(45deg, #e5e5e5 25%, transparent 25%),
+        linear-gradient(-45deg, #e5e5e5 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #e5e5e5 75%),
+        linear-gradient(-45deg, transparent 75%, #e5e5e5 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    /* HTML에서 지정한 배경색을 덮어쓰기 위해 !important 사용 */
+    background-color: #f8f9fa !important;
+}
+
+/* 🚀 2. 슬라이더 동그라미 색상을 사이트 포인트 컬러로 통일 */
+#control-shadow input[type="range"] {
+    accent-color: var(--point-color);
+}
+
+/* 🚀 3. 복사 버튼에 마우스를 올렸을 때 살짝 커지는 효과 */
+#copy-btn {
+    transition: all 0.2s ease;
+}
+
+#copy-btn:hover {
+    background-color: #4fa3e8 !important;
+    /* 조금 더 진한 파란색 */
+    transform: scale(1.05);
+    /* 5% 확대 */
+}
+
+#copy-btn:active {
+    transform: scale(0.95);
+    /* 클릭할 땐 살짝 작아지는 쫀득한 효과 */
+}
+
+/* --- 10. 로또 번호 추첨기 전용 스타일 --- */
+
+/* 넓은 레이아웃용 컨테이너 */
+.lotto-container-wide {
+    max-width: 700px !important; /* 번호판 영역 확보를 위해 일반보다 조금 넓게 설정 */
+}
+
+/* 게임 수 선택 영역 */
+.lotto-options {
+    margin-bottom: 25px;
+    background: #fdfdfd;
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.option-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.option-row label {
+    font-weight: bold;
+    font-size: 15px;
+    color: var(--text-main);
+}
+
+.lotto-select {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    font-size: 15px;
+    font-weight: bold;
+    outline: none;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.lotto-select:focus {
+    border-color: var(--point-color);
+}
+
+/* 숫자 번호판 컨테이너 */
+.number-picker-container {
+    background: #f8f9fa;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid var(--border-color);
+}
+
+.picker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.picker-header span {
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--text-main);
+}
+
+/* 안내 색상 설명 (Legend) */
+.legend {
+    display: flex;
+    gap: 12px;
+    font-size: 13px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-sub);
+}
+
+.color-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.color-dot.default { background: #e9ecef; border: 1px solid #ced4da; }
+.color-dot.fixed { background: #37b24d; }
+.color-dot.excluded { background: #fa5252; }
+
+.picker-tip {
+    font-size: 13px;
+    color: var(--text-sub);
+    margin-bottom: 20px;
+    text-align: left;
+    line-height: 1.5;
+}
+
+/* 숫자판 그리드 (기본 9열 구조) */
+.number-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 10px;
+    justify-items: center;
+    margin-bottom: 15px;
+}
+
+/* 개별 숫자 버튼 */
+.num-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background-color: var(--white);
+    color: #495057;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.num-btn:hover {
+    background-color: #f1f3f5;
+    border-color: #ced4da;
+    transform: scale(1.08);
+}
+
+/* 숫자 버튼 상태: 고정수 (초록) */
+.num-btn.fixed {
+    background: linear-gradient(135deg, #51cf66 0%, #37b24d 100%) !important;
+    color: white !important;
+    border-color: #2b8a3e !important;
+    box-shadow: 0 4px 6px rgba(55, 178, 77, 0.3) !important;
+}
+
+/* 숫자 버튼 상태: 제외수 (빨강) */
+.num-btn.excluded {
+    background: linear-gradient(135deg, #ff8787 0%, #fa5252 100%) !important;
+    color: white !important;
+    border-color: #c92a2a !important;
+    text-decoration: line-through;
+    opacity: 0.8;
+    box-shadow: 0 4px 6px rgba(250, 82, 82, 0.2) !important;
+}
+
+/* 초기화 및 서브 버튼 스타일 */
+.picker-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sub-btn {
+    background: transparent;
+    border: 1px solid #ced4da;
+    color: #495057;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.sub-btn:hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+}
+
+/* 추첨 결과 출력 영역 */
+.lotto-results {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.lotto-row {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    gap: 20px;
+}
+
+.lotto-row .game-label {
+    font-weight: bold;
+    font-size: 15px;
+    color: var(--point-color);
+    min-width: 65px;
+    text-align: left;
+}
+
+.lotto-row .ball-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* 추첨 결과 로또 공 디자인 */
+.lotto-ball {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 800;
+    font-size: 16px;
+    box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.25), 0 3px 6px rgba(0, 0, 0, 0.1);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    
+    /* 애니메이션 설정 */
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+    animation: ball-appear 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes ball-appear {
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* 실제 로또 번호대별 공 색상 (그라디언트 적용으로 입체감 강화) */
+.ball-yellow { background: linear-gradient(135deg, #ffd32a 0%, #ff9f1a 100%); } /* 1~10 */
+.ball-blue { background: linear-gradient(135deg, #4bcffa 0%, #0652dd 100%); }   /* 11~20 */
+.ball-red { background: linear-gradient(135deg, #ff5e57 0%, #ea2027 100%); }    /* 21~30 */
+.ball-gray { background: linear-gradient(135deg, #d2d2d2 0%, #57606f 100%); }   /* 31~40 */
+.ball-green { background: linear-gradient(135deg, #0be881 0%, #05c46b 100%); }  /* 41~45 */
+
+/* 최근 추첨 내역 영역 */
+.lotto-history-container {
+    text-align: center;
+}
+
+.lotto-history-container h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--text-main);
+    text-align: left;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 450px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.empty-history {
+    color: var(--text-sub);
+    font-size: 14px;
+    padding: 30px 0;
+}
+
+.history-item {
+    background: #fcfcfc;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px 20px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.01);
+}
+
+.history-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-sub);
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.history-time {
+    font-weight: bold;
+}
+
+.history-cond {
+    color: #8d6e63; /* 갈색 계열로 특수 조건 부각 */
+    font-weight: 500;
+}
+
+.history-games {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.history-game-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+}
+
+.history-game-label {
+    font-weight: bold;
+    color: #666;
+    min-width: 45px;
+}
+
+.history-numbers {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+/* 내역 목록용 미니 공 디자인 */
+.history-num-ball {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 800;
+    font-size: 11px;
+    box-shadow: inset -1px -1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* 반응형 모바일 최적화 */
+@media (max-width: 600px) {
+    .number-grid {
+        grid-template-columns: repeat(6, 1fr); /* 모바일에서는 6열로 배치 */
+        gap: 8px;
+    }
+    
+    .num-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 13px;
+    }
+    
+    .lotto-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 12px 15px;
+    }
+    
+    .lotto-row .game-label {
+        font-size: 14px;
+    }
+
+    .lotto-ball {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    .history-game-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        border-bottom: 1px dashed #eee;
+        padding-bottom: 6px;
+    }
+
+    .history-game-row:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .history-game-label {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .number-grid {
+        grid-template-columns: repeat(5, 1fr); /* 아주 좁은 화면에서는 5열로 배치 */
+    }
 }
