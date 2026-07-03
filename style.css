@@ -2912,4 +2912,528 @@ body.metronome-page.playing .pendulum-weight {
     .bpm-number {
         font-size: 64px;
     }
-}
+}
+
+/* --- 15. 해빗 트래커 & 데일리 루틴 전용 스타일 --- */
+
+.habit-container {
+    max-width: 650px !important;
+}
+
+body.habit-page {
+    --theme-color: #20c997; /* 메인 테마: 틸 그린 */
+    --theme-color-rgb: 32, 201, 151;
+    --accent-color: #ffa94d;
+}
+
+/* 대시보드 */
+.habit-dashboard {
+    background-color: #f8f9fa;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.progress-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.progress-text {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--theme-color);
+    font-family: monospace;
+}
+
+.progress-bar-container {
+    background-color: #dee2e6;
+    height: 12px;
+    border-radius: 6px;
+    margin: 12px 0;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--theme-color), #087f5b);
+    border-radius: 6px;
+    width: 0%;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dashboard-motivational {
+    font-size: 13px;
+    color: var(--text-sub);
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+/* 습관 추가 영역 */
+.habit-creator {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.habit-creator h3 {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 12px;
+}
+
+.creator-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    position: relative;
+}
+
+.emoji-selector-wrapper {
+    position: relative;
+}
+
+.emoji-select-btn {
+    font-size: 20px;
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+    background-color: var(--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.emoji-select-btn:hover {
+    border-color: #868e96;
+    background-color: #f1f3f5;
+}
+
+.emoji-dropdown {
+    position: absolute;
+    top: 52px;
+    left: 0;
+    z-index: 100;
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    padding: 10px;
+    width: 210px;
+    animation: dropdownFadeIn 0.2s ease-out;
+}
+
+@keyframes dropdownFadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.emoji-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+}
+
+.emoji-option {
+    font-size: 20px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    text-align: center;
+    transition: background-color 0.15s, transform 0.1s;
+}
+
+.emoji-option:hover {
+    background-color: #f1f3f5;
+    transform: scale(1.15);
+}
+
+#habit-name-input {
+    flex: 1;
+    height: 46px;
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    padding: 0 16px;
+    outline: none;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+#habit-name-input:focus {
+    border-color: var(--theme-color);
+}
+
+.add-habit-btn {
+    height: 46px;
+    padding: 0 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--point-color);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.add-habit-btn:hover {
+    background-color: #3e4f6e;
+}
+
+/* 습관 리스트 표시 영역 */
+.habit-list-section {
+    text-align: left;
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.list-header h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.habits-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.habit-empty-msg {
+    background-color: #f8f9fa;
+    border: 1px dashed var(--border-color);
+    border-radius: 16px;
+    padding: 45px 20px;
+    text-align: center;
+    color: var(--text-sub);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* 개별 습관 카드 */
+.habit-card-item {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.habit-card-item:hover {
+    border-color: #ced4da;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+}
+
+.habit-card-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.habit-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+}
+
+.habit-icon {
+    font-size: 22px;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background-color: #f1f3f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.habit-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.habit-title-text {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-main);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.habit-card-item.fully-done .habit-title-text {
+    text-decoration: line-through;
+    color: var(--text-sub);
+}
+
+.habit-streak-badge {
+    font-size: 12px;
+    font-weight: 800;
+    color: #ff922b;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.habit-check-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid #dee2e6;
+    background-color: var(--white);
+    color: #adb5bd;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+}
+
+.habit-check-btn:hover {
+    border-color: var(--theme-color);
+    color: var(--theme-color);
+    background-color: rgba(var(--theme-color-rgb), 0.03);
+}
+
+.habit-check-btn.checked {
+    background-color: var(--theme-color);
+    border-color: var(--theme-color);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(var(--theme-color-rgb), 0.3);
+}
+
+/* 카드 푸터 (주간 트래커) */
+.habit-card-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.weekly-tracker {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+}
+
+.weekly-day-chip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    cursor: pointer;
+}
+
+.day-name {
+    font-size: 11px;
+    color: var(--text-sub);
+    font-weight: 700;
+}
+
+.day-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid #dee2e6;
+    background-color: var(--white);
+    color: var(--text-sub);
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.weekly-day-chip:hover .day-circle {
+    border-color: var(--theme-color);
+}
+
+.weekly-day-chip.completed .day-circle {
+    background-color: var(--theme-color);
+    border-color: var(--theme-color);
+    color: var(--white);
+    box-shadow: 0 3px 6px rgba(var(--theme-color-rgb), 0.25);
+}
+
+.weekly-day-chip.today .day-circle {
+    border-width: 2px;
+    border-color: var(--point-color);
+    color: var(--point-color);
+}
+
+.weekly-day-chip.today.completed .day-circle {
+    background-color: var(--theme-color);
+    border-color: var(--theme-color);
+    color: var(--white);
+}
+
+/* 그리드 토글 및 삭제 행 */
+.grid-toggle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-toggle-grid {
+    background: none;
+    border: none;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-sub);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.2s;
+}
+
+.btn-toggle-grid:hover {
+    color: var(--theme-color);
+}
+
+.btn-delete-habit {
+    background: none;
+    border: none;
+    font-size: 12px;
+    font-weight: 700;
+    color: #adb5bd;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.btn-delete-habit:hover {
+    color: #fa5252;
+}
+
+/* 월간 잔디 캘린더 그리드 */
+.monthly-grid-wrapper {
+    background-color: #f8f9fa;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 5px;
+    display: none;
+    animation: slideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.monthly-grid-wrapper.open {
+    display: block;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.monthly-grid-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-sub);
+    margin-bottom: 12px;
+}
+
+.monthly-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+.grid-cell {
+    aspect-ratio: 1;
+    min-width: 26px;
+    min-height: 26px;
+    border-radius: 6px;
+    background-color: #e9ecef;
+    border: 1px solid #dee2e6;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-sub);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.grid-cell.empty {
+    background-color: transparent;
+    border: none;
+    cursor: default;
+    pointer-events: none;
+}
+
+.grid-cell:not(.empty):hover {
+    border-color: var(--theme-color);
+    transform: scale(1.08);
+}
+
+.grid-cell.completed {
+    background-color: var(--theme-color);
+    border-color: var(--theme-color);
+    color: var(--white);
+    box-shadow: 0 2px 6px rgba(var(--theme-color-rgb), 0.3);
+}
+
+.grid-cell.today {
+    border: 2px solid var(--point-color);
+    color: var(--point-color);
+}
+
+.grid-cell.today.completed {
+    border-color: var(--theme-color);
+    color: var(--white);
+}
+
+@media (max-width: 480px) {
+    .weekly-tracker {
+        gap: 2px;
+    }
+    .day-circle {
+        width: 24px;
+        height: 24px;
+        font-size: 10px;
+    }
+    .grid-cell {
+        min-width: 22px;
+        min-height: 22px;
+        font-size: 10px;
+        border-radius: 4px;
+    }
+}
+

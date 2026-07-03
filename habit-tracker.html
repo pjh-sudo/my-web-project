@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>해빗 트래커 & 데일리 루틴 달력 - 소소집</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png">
+</head>
+<body class="habit-page">
+
+    <header>
+        <a href="index.html" class="logo" style="text-decoration: none;">SOSOZIB</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1418602449823851"
+        crossorigin="anonymous"></script>
+        <meta name="google-adsense-account" content="ca-pub-1418602449823851">
+    </header>
+
+    <section class="tool-detail-section">
+        <div class="tool-container habit-container habit-card" id="habit-card">
+            <h2>해빗 트래커 & 루틴 달력 📅</h2>
+            <p>매일 만들고 싶은 좋은 습관들을 기록하고, 연속 달성일(스트릭)을 쌓아가며 행동 변화를 시각화하세요.</p>
+            
+            <!-- 대시보드 (달성 현황 및 프로그레스 바) -->
+            <div class="habit-dashboard">
+                <div class="dashboard-header">
+                    <span class="progress-title">🎯 오늘의 습관 달성률</span>
+                    <span class="progress-text" id="dashboard-progress-text">0 / 0 완료 (0%)</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="dashboard-progress-bar" style="width: 0%"></div>
+                </div>
+                <div class="dashboard-motivational" id="dashboard-message">
+                    새로운 습관을 등록하고 오늘 하루도 활기차게 시작해 보세요!
+                </div>
+            </div>
+
+            <!-- 습관 추가 양식 -->
+            <div class="habit-creator">
+                <h3>새로운 습관 만들기 📝</h3>
+                <form id="habit-form" onsubmit="return false;">
+                    <div class="creator-row">
+                        <!-- 이모지 선택 버튼 & 목록 팝업 -->
+                        <div class="emoji-selector-wrapper">
+                            <button type="button" class="emoji-select-btn" id="btn-emoji-select" title="아이콘 선택">💧</button>
+                            <div class="emoji-dropdown" id="emoji-dropdown" style="display: none;">
+                                <div class="emoji-grid">
+                                    <span class="emoji-option">💧</span>
+                                    <span class="emoji-option">🏃</span>
+                                    <span class="emoji-option">📚</span>
+                                    <span class="emoji-option">🧘</span>
+                                    <span class="emoji-option">🥦</span>
+                                    <span class="emoji-option">💻</span>
+                                    <span class="emoji-option">🧹</span>
+                                    <span class="emoji-option">🛌</span>
+                                    <span class="emoji-option">✍️</span>
+                                    <span class="emoji-option">🍎</span>
+                                    <span class="emoji-option">🚶</span>
+                                    <span class="emoji-option">💊</span>
+                                    <span class="emoji-option">☕</span>
+                                    <span class="emoji-option">💪</span>
+                                    <span class="emoji-option">☀️</span>
+                                    <span class="emoji-option">🎵</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 텍스트 입력창 -->
+                        <input type="text" id="habit-name-input" placeholder="어떤 습관을 만들고 싶나요? (예: 아침 명상 10분)" maxlength="35" required autocomplete="off">
+                        
+                        <button type="button" class="add-habit-btn" id="btn-add-habit">추가</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 습관 목록 표시 영역 -->
+            <div class="habit-list-section">
+                <div class="list-header">
+                    <h3>나의 해빗 리스트</h3>
+                    <button class="sub-btn" id="btn-clear-habits" style="font-size: 11px; padding: 4px 10px; margin: 0;">전체 삭제 🗑️</button>
+                </div>
+                
+                <div class="habits-container" id="habits-container">
+                    <!-- JS에서 습관 카드들이 렌더링됩니다 -->
+                    <div class="habit-empty-msg" id="habit-empty-msg">
+                        아직 등록된 습관이 없습니다. 위의 양식을 사용하여 매일 실천할 습관을 더해 보세요!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO용 소개 및 가이드 섹션 -->
+    <section class="seo-text-section">
+        <article class="seo-article">
+            <h3>해빗 트래커(Habit Tracker)란 무엇인가요?</h3>
+            <p><strong>해빗 트래커(Habit Tracker)</strong>는 매일 수행하고자 하는 습관이나 행동 패턴을 목록화하고, 완료 여부를 시각적으로 기록해 나가는 자아 성찰 및 행동 관리 도구입니다. 달력의 하루하루를 동그라미로 채우고 기록을 늘려 나갈 때 뇌에서 도파민이 분비되어, 행동을 지속하려는 강한 동기를 가지게 됩니다.</p>
+            <p>세계적인 자기계발 베스트셀러인 <em>'아주 작은 습관의 힘(Atomic Habits)'</em>의 저자 제임스 클리어는 <strong>"트래커에 완료 체크를 하는 행위 자체가 즉각적인 만족감(Satisfying)을 주는 보상이 되며, 습관의 고리를 강화한다"</strong>고 강조했습니다.</p>
+
+            <h4>효과적인 습관 형성을 돕는 4대 규칙</h4>
+            <ul>
+                <li><strong>1. 분명하게 만들어라 (Make it Obvious):</strong> 트래커 화면을 자주 보는 곳에 두세요. 소소집 북마크나 모바일 홈 화면 바로가기를 설정해 두면 잊지 않고 기록을 이어갈 수 있습니다.</li>
+                <li><strong>2. 매력적으로 만들어라 (Make it Attractive):</strong> 각 습관의 특성에 맞는 귀여운 이모지 아이콘을 부여하세요. 달력을 가득 채운 예쁜 캘린더 그리드는 보기만 해도 성취감을 줍니다.</li>
+                <li><strong>3. 쉽게 만들어라 (Make it Easy):</strong> 처음부터 "매일 2시간 운동"처럼 큰 목표를 잡지 마세요. "매일 팔굽혀펴기 10회", "책 5페이지 읽기"와 같이 2분 안에 시작할 수 있는 작은 습관부터 등록하여 성공 빈도를 높이세요.</li>
+                <li><strong>4. 만족스럽게 만들어라 (Make it Satisfying):</strong> 완료 버튼을 누를 때 켜지는 녹색 인디케이터와 오르는 스트릭(🔥 불꽃) 카운터를 보며 즉각적인 보상을 받으세요.</li>
+            </ul>
+
+            <h4>이 해빗 트래커의 유용한 기능</h4>
+            <ol>
+                <li><strong>주간 히스토리 편집:</strong> 어제 혹은 며칠 전 깜빡하고 체크하지 못했나요? 습관 카드의 7일 주간 동그라미를 누르면 과거의 기록도 간편하게 클릭하여 토글할 수 있습니다.</li>
+                <li><strong>월간 잔디 그리드:</strong> 습관 카드 하단의 '캘린더 펼치기' 버튼을 클릭하면, 이번 달 한 달간 어떤 날에 완료했는지 잔디 심기(Contribution Grid) 형태로 한눈에 분석할 수 있습니다.</li>
+                <li><strong>스트릭 계산(Streak):</strong> 단 하루도 빼놓지 않고 매일 연속해서 실행한 기간을 나타내는 연속 달성일수(🔥)를 정확히 연산하여 보여줍니다.</li>
+            </ol>
+        </article>
+    </section>
+
+    <footer>
+        <div class="footer-logo">SOSOZIB</div>
+        <div class="footer-copy">
+            <a href="privacy-policy.html" style="color: #666; text-decoration: underline;">개인정보처리방침</a> | 
+            © 2026 SOSOZIB
+        </div>
+    </footer>
+
+    <script src="habit.js"></script>
+</body>
+</html>
