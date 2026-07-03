@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메트로놈 & 탭 BPM 측정기 - 소소집</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png">
+</head>
+<body class="metronome-page">
+
+    <header>
+        <a href="index.html" class="logo" style="text-decoration: none;">SOSOZIB</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1418602449823851"
+        crossorigin="anonymous"></script>
+        <meta name="google-adsense-account" content="ca-pub-1418602449823851">
+    </header>
+
+    <section class="tool-detail-section">
+        <div class="tool-container metronome-container metronome-card" id="metronome-card">
+            <h2>메트로놈 & 탭 BPM ⏱️</h2>
+            <p>정확한 전자식 비트음과 흔들리는 추 애니메이션으로 비트를 맞추고, 원하는 템포를 직접 두드려 확인하세요.</p>
+            
+            <!-- 비주얼 메트로놈 추 (Pendulum) & 인디케이터 -->
+            <div class="metronome-visual-area">
+                <!-- 펜듈럼 (추) 영역 -->
+                <div class="pendulum-container">
+                    <div class="pendulum-pivot"></div>
+                    <div class="pendulum-arm" id="pendulum-arm">
+                        <div class="pendulum-weight"></div>
+                    </div>
+                </div>
+                
+                <!-- LED 박자 인디케이터 (비트수에 따라 동적 생성됨) -->
+                <div class="beat-indicators" id="beat-indicators">
+                    <!-- JS에서 동적으로 채워집니다 -->
+                </div>
+            </div>
+
+            <!-- 대형 BPM 정보 표시 -->
+            <div class="bpm-display-wrapper">
+                <div class="bpm-value-row">
+                    <span class="bpm-number" id="bpm-display">120</span>
+                    <span class="bpm-unit">BPM</span>
+                </div>
+                <div class="tempo-name" id="tempo-name">Moderato (보통 빠르게)</div>
+            </div>
+
+            <!-- 슬라이더 및 세밀 조정 컨트롤 -->
+            <div class="metronome-controls">
+                <div class="control-row inline-buttons">
+                    <button class="step-btn" data-change="-10">-10</button>
+                    <button class="step-btn" data-change="-5">-5</button>
+                    <button class="step-btn" data-change="-1">-1</button>
+                    <button class="step-btn" data-change="1">+1</button>
+                    <button class="step-btn" data-change="5">+5</button>
+                    <button class="step-btn" data-change="10">+10</button>
+                </div>
+                
+                <div class="slider-wrapper">
+                    <input type="range" id="bpm-slider" class="bpm-range-slider" min="20" max="280" value="120">
+                </div>
+            </div>
+
+            <!-- 재생 & 탭 BPM 액션 섹션 -->
+            <div class="action-section">
+                <!-- 재생 버튼 -->
+                <button class="play-btn" id="btn-play-pause">
+                    <span class="play-icon" id="play-pause-icon">▶</span>
+                    <span class="play-text" id="play-pause-text">START</span>
+                </button>
+                
+                <!-- 탭 BPM 버튼 -->
+                <button class="tap-btn" id="btn-tap">
+                    <span class="tap-title">TAP TEMPO</span>
+                    <span class="tap-sub">여기를 탭하거나 스페이스바 클릭</span>
+                </button>
+            </div>
+
+            <!-- 설정 그리드 -->
+            <div class="settings-grid">
+                <div class="setting-item">
+                    <label for="select-beats">박자 (Beats)</label>
+                    <select id="select-beats" class="custom-select">
+                        <option value="1">1박자 (단일 비트)</option>
+                        <option value="2">2박자 (2/4, 2/2)</option>
+                        <option value="3">3박자 (3/4, 3/8)</option>
+                        <option value="4" selected>4박자 (4/4)</option>
+                        <option value="5">5박자 (5/4)</option>
+                        <option value="6">6박자 (6/8)</option>
+                        <option value="7">7박자 (7/8)</option>
+                        <option value="8">8박자 (8/8)</option>
+                    </select>
+                </div>
+                
+                <div class="setting-item">
+                    <label for="select-subdivision">세분박 (Subdivision)</label>
+                    <select id="select-subdivision" class="custom-select">
+                        <option value="1" selected>4분음표 (Quarter)</option>
+                        <option value="2">8분음표 (Eighth)</option>
+                        <option value="3">셋잇단음표 (Triplet)</option>
+                        <option value="4">16분음표 (Sixteenth)</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <label for="select-sound">소리 종류</label>
+                    <select id="select-sound" class="custom-select">
+                        <option value="cowbell" selected>전자식 카우벨 (Cowbell)</option>
+                        <option value="sine">사인 비프 (Clear Beep)</option>
+                        <option value="woodblock">우드 블록 (Wood Block)</option>
+                        <option value="tick">아날로그 클릭 (Analog Tick)</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <label>볼륨 조절</label>
+                    <div class="volume-container">
+                        <span class="volume-icon" id="btn-mute">🔊</span>
+                        <input type="range" id="volume-slider" min="0" max="100" value="80">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO용 소개 및 속도 사전 섹션 -->
+    <section class="seo-text-section">
+        <article class="seo-article">
+            <h3>메트로놈 & 탭 BPM이란 무엇인가요?</h3>
+            <p><strong>메트로놈(Metronome)</strong>은 일정한 간격으로 박자(클릭 소리)를 만들어내는 음악 보조 기구입니다. 연주를 할 때 규칙적인 속도를 유지할 수 있도록 도와주며, 독서, 운동(플랭크, 케틀벨 스윙 등), 심폐소생술 속도 조절 등 규칙적인 템포가 요구되는 다양한 일상 생활에서도 활용할 수 있습니다.</p>
+            <p><strong>탭 BPM(Tap BPM)</strong>은 마우스나 키보드(스페이스바)를 노래 박자에 맞춰 가볍게 탭하면, 탭의 시간 간격을 계산하여 현재 흘러나오는 곡의 BPM(Beats Per Minute)이 얼마인지를 실시간으로 측정해 주는 스마트한 도구입니다.</p>
+
+            <h4>클래식 속도 기호 (Tempo Markings)</h4>
+            <p>전통적으로 음악에서 템포를 지칭할 때 사용되는 이탈리아어 용어들입니다. 아래의 속도명을 클릭하면 메트로놈의 템포가 해당 값으로 즉시 설정됩니다.</p>
+            
+            <div class="tempo-table-wrapper">
+                <table class="tempo-table">
+                    <thead>
+                        <tr>
+                            <th>속도명 (용어)</th>
+                            <th>속도의 의미</th>
+                            <th>BPM 범위</th>
+                            <th>빠른 설정</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tempo-table-body">
+                        <!-- JS에서 템포 정보 배열을 이용해 동적으로 렌더링하고, 클릭 시 즉시 BPM 적용 기능 제공 -->
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>본 메트로놈의 특징</h4>
+            <ul>
+                <li><strong>정밀한 타이밍 오디오 엔진:</strong> 본 사이트의 메트로놈은 일반적인 JavaScript의 <code>setInterval</code>이나 <code>setTimeout</code>을 사용하지 않고, <strong>Web Audio API 기반의 룩어헤드(Look-ahead) 스케줄링 기술</strong>을 사용하여 오차가 전혀 없고 끊김 없는 정확한 정밀 비트를 보장합니다.</li>
+                <li><strong>맞춤형 세분박 지원:</strong> 4분음표 외에도 8분음표, 셋잇단음표, 16분음표 등 연습하려는 비트의 결에 맞게 더 미세한 음표로 쪼개어 들을 수 있습니다.</li>
+                <li><strong>첫 박 강세 기능:</strong> 첫 번째 박(Accent Beat)에 소리와 비주얼이 더 명확하게 구별되므로, 마디의 시작을 항상 한눈에 확인할 수 있습니다.</li>
+            </ul>
+        </article>
+    </section>
+
+    <footer>
+        <div class="footer-logo">SOSOZIB</div>
+        <div class="footer-copy">
+            <a href="privacy-policy.html" style="color: #666; text-decoration: underline;">개인정보처리방침</a> | 
+            © 2026 SOSOZIB
+        </div>
+    </footer>
+
+    <script src="metronome.js"></script>
+</body>
+</html>
